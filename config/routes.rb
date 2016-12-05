@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get '/teachers', to: 'static_pages#teachers'
-  get '/schedule', to: 'static_pages#schedule'
+  get '/schedule', to: 'class_pages#schedule'
   get '/classes', to: 'class_pages#index'
   #get '/class_pages/show', to: 'class_pages#show', :as => :show
   get '/contact', to: 'static_pages#contact'

@@ -19,6 +19,10 @@ class ClassPagesController < ApplicationController
     @class_page = ClassPage.new
   end
 
+  def schedule
+    @class_pages = ClassPage.order("order_position ASC").all
+  end
+
   # GET /class_pages/1/edit
   def edit
 

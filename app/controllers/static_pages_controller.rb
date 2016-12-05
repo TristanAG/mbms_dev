@@ -5,8 +5,7 @@ class StaticPagesController < ApplicationController
   def teachers
   end
 
-  def schedule
-  end
+  
 
   def classes
   end

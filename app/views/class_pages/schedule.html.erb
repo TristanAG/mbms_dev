@@ -1,0 +1,24 @@
+<% provide(:title, "Schedule") %>
+  <div class="nine columns">
+    <div class="content">
+      <h4 class="basicheader">Schedule</h4>
+      <p>
+
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit odio felis, nec volutpat magna sollicitudin et. Nulla mauris arcu, blandit in lacus vel, tincidunt iaculis dolor. Praesent eu blandit arcu. Aenean blandit tellus elit, non bibendum justo tristique in. Integer dolor ligula, accumsan vitae vulputate id, sagittis vel leo. Quisque posuere lorem at lorem congue faucibus. Cras eget justo euismod, finibus mauris quis, accumsan diam. Aliquam eu augue ut dolor fermentum semper. Nunc id facilisis sapien, nec vulputate sapien. Aliquam lacus enim, feugiat ac euismod at, auctor ut turpis. In sed ex laoreet, sagittis nibh in, tincidunt orci. Cras eget nibh vitae odio pulvinar facilisis. Etiam mauris metus, tristique ut lacus id, volutpat pellentesque felis. Maecenas lorem ipsum, gravida ut consectetur ut, vehicula a nisi. Nullam fermentum purus a erat vestibulum egestas. Duis suscipit lectus ut tortor viverra, nec rutrum ante lobortis.
+</p>
+<p>In id nunc nec diam tempus porttitor. Proin et mi volutpat magna lobortis blandit. Mauris id ante a ante feugiat ultricies vel convallis libero. Etiam eleifend sapien sapien, ut congue enim tempus at. Phasellus convallis tempor pellentesque. Etiam arcu libero, porta et ullamcorper non, posuere quis enim. Vestibulum eu libero malesuada, condimentum enim sit amet, dignissim lacus. Praesent lobortis augue nibh, eget suscipit lectus ultricies sit amet.
+</p>
+
+<p>
+        <% @class_pages.each do |class_page| %>
+          <ul>
+            <li>
+              <%= link_to "#{class_page.class_title}", class_page  %>
+
+            </li>
+          </ul>
+        <% end %>
+      </p>
+    </div>
+  </div>
