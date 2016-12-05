@@ -1,24 +1,171 @@
+
+
 <% provide(:title, "Schedule") %>
   <div class="nine columns">
     <div class="content">
       <h4 class="basicheader">Schedule</h4>
-      <p>
 
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit odio felis, nec volutpat magna sollicitudin et. Nulla mauris arcu, blandit in lacus vel, tincidunt iaculis dolor. Praesent eu blandit arcu. Aenean blandit tellus elit, non bibendum justo tristique in. Integer dolor ligula, accumsan vitae vulputate id, sagittis vel leo. Quisque posuere lorem at lorem congue faucibus. Cras eget justo euismod, finibus mauris quis, accumsan diam. Aliquam eu augue ut dolor fermentum semper. Nunc id facilisis sapien, nec vulputate sapien. Aliquam lacus enim, feugiat ac euismod at, auctor ut turpis. In sed ex laoreet, sagittis nibh in, tincidunt orci. Cras eget nibh vitae odio pulvinar facilisis. Etiam mauris metus, tristique ut lacus id, volutpat pellentesque felis. Maecenas lorem ipsum, gravida ut consectetur ut, vehicula a nisi. Nullam fermentum purus a erat vestibulum egestas. Duis suscipit lectus ut tortor viverra, nec rutrum ante lobortis.
-</p>
-<p>In id nunc nec diam tempus porttitor. Proin et mi volutpat magna lobortis blandit. Mauris id ante a ante feugiat ultricies vel convallis libero. Etiam eleifend sapien sapien, ut congue enim tempus at. Phasellus convallis tempor pellentesque. Etiam arcu libero, porta et ullamcorper non, posuere quis enim. Vestibulum eu libero malesuada, condimentum enim sit amet, dignissim lacus. Praesent lobortis augue nibh, eget suscipit lectus ultricies sit amet.
-</p>
-
-<p>
-        <% @class_pages.each do |class_page| %>
-          <ul>
-            <li>
-              <%= link_to "#{class_page.class_title}", class_page  %>
-
-            </li>
-          </ul>
-        <% end %>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit odio felis, nec volutpat magna sollicitudin et. Nulla mauris arcu, blandit in lacus vel, tincidunt iaculis dolor. Praesent eu blandit arcu. Aenean blandit tellus elit, non bibendum justo tristique in. Integer dolor ligula, accumsan vitae vulputate id, sagittis vel leo. Quisque posuere lorem at lorem congue faucibus. Cras eget justo euismod, finibus mauris quis, accumsan diam. Aliquam eu augue ut dolor fermentum semper. Nunc id facilisis sapien, nec vulputate sapien. Aliquam lacus enim, feugiat ac euismod at, auctor ut turpis. In sed ex laoreet, sagittis nibh in, tincidunt orci. Cras eget nibh vitae odio pulvinar facilisis. Etiam mauris metus, tristique ut lacus id, volutpat pellentesque felis. Maecenas lorem ipsum, gravida ut consectetur ut, vehicula a nisi. Nullam fermentum purus a erat vestibulum egestas. Duis suscipit lectus ut tortor viverra, nec rutrum ante lobortis.
       </p>
+      <p>In id nunc nec diam tempus porttitor. Proin et mi volutpat magna lobortis blandit. Mauris id ante a ante feugiat ultricies vel convallis libero. Etiam eleifend sapien sapien, ut congue enim tempus at. Phasellus convallis tempor pellentesque. Etiam arcu libero, porta et ullamcorper non, posuere quis enim. Vestibulum eu libero malesuada, condimentum enim sit amet, dignissim lacus. Praesent lobortis augue nibh, eget suscipit lectus ultricies sit amet.
+      </p>
+
+      <h4 class="basicheader">December Schedule</h4>
+
+<p><small>Please note: all classes with&nbsp;<span class="star">*</span>&nbsp;require pre-registration<br />
+Click the link for more information</small></p>
+
+<table class="u-full-width">
+	<thead>
+		<tr class="top-level">
+			<td class="date">
+			<div class="indent">December Week 2</div>
+			</td>
+			<td class="time">Time</td>
+			<td class="class">Class</td>
+			<td class="teacher">Teacher</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="date-column">Sun., 12/4</td>
+			<td>5:00 pm-6:00 pm</td>
+			<td><a href="http://montereybaymeditation.com/classes/waves-of-light.php">Free Community Event: Waves of Light</a></td>
+			<td class="teacher">Marianne &amp; Katie</td>
+		</tr>
+		<tr>
+			<td class="date-column">Tues., 12/6
+			<div class="indent"></div>
+			</td>
+			<td>12:15-12:45 pm</td>
+			<td><a href="classes/drop-in-class.php">Drop-In Meditation: Guided</a></td>
+			<td class="teacher">Katie</td>
+		</tr>
+		<tr>
+			<td class="date-column"></td>
+			<td>7:15-7:45 pm</td>
+			<td><a href="classes/drop-in-class.php">Drop-In Meditation: Guided</a></td>
+			<td class="teacher">Katie</td>
+		</tr>
+		<tr>
+			<td class="date-column">
+			<div class="indent">Wed., 12/7</div>
+			</td>
+			<td>8:00-8:30 am</td>
+			<td><a href="classes/drop-in-class.php">Drop-In Meditation: Guided</a></td>
+			<td class="teacher">Katie</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="date-column">
+			<div class="indent">12:15-12:45 pm</div>
+			</td>
+			<td><a href="classes/drop-in-class.php">Drop-In Meditation: Silent</a></td>
+			<td class="teacher">Marianne</td>
+		</tr>
+		<tr>
+			<td class="date-column">
+			<div class="indent">Thurs., 12/8</div>
+			</td>
+			<td>12:15-12:45 pm</td>
+			<td><a href="classes/drop-in-class.php">Drop-In Meditation: Silent</a></td>
+			<td class="teacher">Marianne</td>
+		</tr>
+		<tr>
+			<td class="date-column">
+			<div class="indent">Fri., 12/9</div>
+			</td>
+			<td>10:00-11:00 am</td>
+			<td><a href="classes/drop-in-class.php">Drop-In Practice: Qigong &amp; Meditation</a></td>
+			<td class="teacher">Katie</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="u-full-width">
+	<thead>
+		<tr class="top-level">
+			<td class="date">
+			<div class="indent">December Week 3</div>
+			</td>
+			<td class="time">Time</td>
+			<td class="class">Class</td>
+			<td class="teacher">Teacher</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="date-column">Tues., 12/13</td>
+			<td>7:15-7:45 pm</td>
+			<td><a href="classes/drop-in-class.php">Drop-In Meditation: Guided</a></td>
+			<td class="teacher">Marianne</td>
+		</tr>
+		<tr>
+			<td class="date-column">
+			<div class="indent">Wed., 12/14</div>
+			</td>
+			<td>8:00-8:30 am</td>
+			<td><a href="classes/drop-in-class.php">Drop-In Meditation: Guided</a></td>
+			<td class="teacher">Jennifer Edwards</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="date-column">
+			<div class="indent">12:15-12:45 pm</div>
+			</td>
+			<td><a href="classes/drop-in-class.php">Drop-In Meditation: Silent</a></td>
+			<td class="teacher">Marianne</td>
+		</tr>
+		<tr>
+			<td class="date-column">
+			<div class="indent">Thurs., 12/15</div>
+			</td>
+			<td>12:15-12:45 pm</td>
+			<td><a href="classes/drop-in-class.php">Drop-In Meditation: Silent</a></td>
+			<td class="teacher">Marianne</td>
+		</tr>
+		<tr>
+			<td class="date-column"></td>
+			<td>5:30-7:00 pm</td>
+			<td><a href="http://montereybaymeditation.com/classes/the-mindful-and-compassionate-living-series.php">Mindful &amp; Compassionate Living Series: Reclaiming Silence</a>*</td>
+			<td class="teacher">Marianne</td>
+		</tr>
+		<tr>
+			<td class="date-column">Sat., 12/17</td>
+			<td>9:30-10:30</td>
+			<td><a href="http://montereybaymeditation.com/classes/drop-in-class.php">The Gift of the Generous Heart</a></td>
+			<td class="teacher">Marianne</td>
+		</tr>
+		<tr>
+			<td class="date-column"></td>
+			<td>11:00-12:00</td>
+			<td><a href="http://montereybaymeditation.com/classes/classes-for-educators.php">Practice &amp; Discussion Group for Mindful Educators</a></td>
+			<td class="teacher">Marianne</td>
+		</tr>
+		<tr>
+			<td class="date-column"></td>
+			<td>1:00-3:00</td>
+			<td><a href="http://montereybaymeditation.com/classes/mindful-relating-games.php">Mindful Relating Games</a></td>
+			<td class="teacher">Marianne</td>
+		</tr>
+		<tr>
+			<td class="date-column"><strong>Sun., 12/18- Tues., 1/3</strong></td>
+			<td></td>
+			<td><strong>Studio Closed for the Holidays</strong></td>
+			<td class="teacher"></td>
+		</tr>
+	</tbody>
+</table>
+
+
+      <% @class_pages.each do |class_page| %>
+        <ul>
+          <li>
+            <%= link_to "#{class_page.class_title}", class_page  %>
+
+          </li>
+        </ul>
+      <% end %>
+
     </div>
   </div>
