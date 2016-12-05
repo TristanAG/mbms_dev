@@ -1,5 +1,12 @@
-<h1>New Class Page</h1>
+<% provide(:title, "New Class") %>
+  <div class="nine columns">
+    <div class="content">
+      <h4 class="basicheader">New Class</h4>
 
-<%= render 'form', class_page: @class_page %>
 
-<%= link_to 'Back', class_pages_path %>
+
+      <%= render 'form', class_page: @class_page %>
+
+      <%= link_to 'Back', class_pages_path %>
+    </div>
+  </div>
