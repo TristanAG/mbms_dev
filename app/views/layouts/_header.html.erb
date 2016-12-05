@@ -1,0 +1,25 @@
+
+
+<div class="row">
+  <div class="twelve columns">
+  	<header>
+
+    	<%= link_to image_tag("logo_small.png", alt: "Monterey Bay Meditation Studio logo", class: "main-image"),
+      root_path  %>
+
+  	
+  </div>
+</div>
+
+<div class="address" >
+  A Space for Meditation, Connection, Reflection and Learning
+</div>
+
+<div id='nav'>
+  <%= link_to "Home",     root_path,      class: "nav-links" %>
+  <%= link_to "Teachers", teachers_path,  class: "nav-links" %>
+  <%= link_to "Classes",  classes_path,   class: "nav-links" %>
+  <%= link_to "Contact",  contact_path,   class: "nav-links" %>
+</div>
+</header>
+	  <!-- mobile nav stuff is currently missing -->

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Monterey Bay Meditation Studio</title>
+    <%= csrf_meta_tags %>
+
+    <%= render 'layouts/basic_page_needs' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= render 'layouts/header' %>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <%= yield %>
+      
+
+
+      <div class="three columns">
+    		<%= render 'layouts/sidebar' %>
+    	</div>
+    </div>
+
+		<%= render 'layouts/footer' %>
+
+  </body>
+</html>

@@ -1,0 +1,30 @@
+
+
+  <div class="two columns">
+    <%= render 'layouts/sidebar_classes' %>
+  </div>
+
+  <div class="seven columns" style="background-color:white">
+
+      <div class="content">
+        <h4 class="basicheader"> <%= @class_page.class_title %></h4>
+
+        <%= image_tag @class_page.class_photo.url %>
+
+
+
+        <p>
+          <%= simple_format @class_page.class_content %>
+        </p>
+
+
+        <p>
+          Order Position: <%= @class_page.order_position %>
+          <br>
+          <%= link_to 'Edit', edit_class_page_path(@class_page) %> |
+          <%= link_to 'Back', class_pages_path %> |
+          <%= link_to 'Destroy', class_page_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+
+      </div>
+    </div>
