@@ -1,2 +1,11 @@
 <%= render 'layouts/widgets/connect' %>
-    
+
+<p>This week in the studio:</p>
+<% @class_pages.each do |class_page| %>
+  <ul>
+    <li>
+      <%= link_to "#{class_page.class_title}", class_page  %>
+
+    </li>
+  </ul>
+<% end %>
