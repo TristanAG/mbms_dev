@@ -3,6 +3,7 @@
 $basicheader: #008e8e;
 $sub-header: #52acac;
 $sub-sub-header: #52acac;
+$link-hover: darken(#008e8e, 10%);
 
 /* Header */
 
@@ -140,8 +141,8 @@ footer{
 
   height: 130px;
 
-  background-color:white;
-  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=white, endColorstr=#E4EFF2);
+  background-color:lighten(lightgray, 10%);
+  // filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=white, endColorstr=#E4EFF2);
   // background-image:-moz-linear-gradient(top, white 22%, #E4EFF2 60%,#52acac 100%);
   // background-image:linear-gradient(top, white 22%, #E4EFF2 60%,#52acac 100%);
   // background-image:-webkit-linear-gradient(top, white 22%, #E4EFF2 60%,#52acac 100%);
@@ -262,7 +263,7 @@ thead{
 }
 
 .subnav a:hover{
-  color: #ffd9b3;
+  color: $link-hover;
 
 }
 
@@ -533,4 +534,8 @@ a:hover .sub-sub-header{
   border-radius: 4px;
   margin-bottom: 6px;
   padding-left: 4px;
+}
+
+a:hover{
+  color: $link-hover;
 }
