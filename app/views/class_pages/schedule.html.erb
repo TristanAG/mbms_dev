@@ -150,6 +150,18 @@ Click the link for more information</small></p>
 	</tbody>
 </table>
 
+<%= month_calendar events: @class_pages do |date, class_pages| %>
+  <span class="day-num"><%= date.day %></span>
+
+  <% class_pages.each do |class_page| %>
+    <%= class_page.class_title %>
+  <% end %>
+
+<% end %>
+
+
+
+
 
       <% @class_pages.each do |class_page| %>
         <ul>
