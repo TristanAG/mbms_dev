@@ -1,13 +1,16 @@
 class ClassPagesController < ApplicationController
   before_action :set_class_page, only: [:show, :edit, :update, :destroy]
-
+  before_action :load_widgets
   # GET /class_pages
   # GET /class_pages.json
   def index
     @class_pages = ClassPage.order("order_position ASC").all
   end
 
-  
+  def admin
+
+    @class_pages = ClassPage.all
+  end
 
   # GET /class_pages/1
   # GET /class_pages/1.json
@@ -18,7 +21,7 @@ class ClassPagesController < ApplicationController
 
   # GET /class_pages/new
   def new
-    this_week_widget
+
     @class_page = ClassPage.new
 
   end
@@ -29,7 +32,7 @@ class ClassPagesController < ApplicationController
 
   # GET /class_pages/1/edit
   def edit
-    this_week_widget
+
   end
 
   # POST /class_pages
@@ -87,5 +90,6 @@ class ClassPagesController < ApplicationController
 
     def load_widgets
       this_week_widget
+      announcement_widget
     end
 end

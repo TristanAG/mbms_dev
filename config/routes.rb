@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :show
   end
 
+  get '/admin', to: 'class_pages#admin'
+
   root 'static_pages#home'
   get '/teachers', to: 'static_pages#teachers'
   get '/schedule', to: 'class_pages#schedule'
