@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208042952) do
+ActiveRecord::Schema.define(version: 20161220192552) do
+
+  create_table "announcement_widgets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "announcements", force: :cascade do |t|
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "class_pages", force: :cascade do |t|
     t.string   "class_title"

@@ -5,5 +5,9 @@ class ApplicationController < ActionController::Base
     @class_pages = ClassPage.order("order_position ASC").all
   end
 
-  
+  def announcement_widget
+    @announcement = Announcement.first
+  end
+
+
 end

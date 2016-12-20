@@ -7,6 +7,8 @@ class ClassPagesController < ApplicationController
     @class_pages = ClassPage.order("order_position ASC").all
   end
 
+  
+
   # GET /class_pages/1
   # GET /class_pages/1.json
   def show

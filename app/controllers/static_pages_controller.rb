@@ -17,5 +17,6 @@ class StaticPagesController < ApplicationController
 
   def load_widgets
     this_week_widget
+    announcement_widget
   end
 end

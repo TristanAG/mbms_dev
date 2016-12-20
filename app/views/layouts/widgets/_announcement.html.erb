@@ -1,6 +1,8 @@
 <div class="sidebar-panel">
   <div class="basicheader">Announcement</div>
 
-  <p>we will be closed for the holidays</p>
+  <p><%= @announcement.content %></p>
+
+  <%= link_to 'Edit', edit_announcement_path(@announcement) %></td>
 
 </div>

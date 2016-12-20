@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :announcements
   #resources :class_pages
 
   resources :class_pages, :path => 'classes' do
