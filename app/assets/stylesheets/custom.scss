@@ -31,6 +31,9 @@ header{
   margin-bottom: 6px;
   margin-top: 6px;
   z-index: 3;
+  border-top: 1px solid darken(lightgray, 6%);
+  border-bottom: 1px solid darken(lightgray, 6%);
+  background-color:lighten(lightgray, 10%);
 
   .nav-links{
     margin-right: 40px;

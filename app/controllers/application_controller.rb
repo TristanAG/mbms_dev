@@ -4,4 +4,6 @@ class ApplicationController < ActionController::Base
   def this_week_widget
     @class_pages = ClassPage.order("order_position ASC").all
   end
+
+  
 end
