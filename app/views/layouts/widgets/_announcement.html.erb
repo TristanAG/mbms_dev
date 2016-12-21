@@ -1,6 +1,7 @@
 <div class="sidebar-panel">
   <div class="basicheader">Announcement</div>
 
+  <p><%= image_tag @announcement.image.url, class: "announcement-image" %></p>
   <p><%= @announcement.content %></p>
 
   <%= link_to 'Edit', edit_announcement_path(@announcement) %></td>
