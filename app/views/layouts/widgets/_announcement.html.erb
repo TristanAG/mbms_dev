@@ -1,5 +1,6 @@
 <div class="sidebar-panel">
-  <div class="basicheader">Announcement</div>
+  <div class="basicheader"><%= @announcement.title %></div>
+
 
   <p><%= image_tag @announcement.image.url, class: "announcement-image" %></p>
   <p><%= @announcement.content %></p>
