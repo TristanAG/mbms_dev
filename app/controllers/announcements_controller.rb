@@ -1,6 +1,6 @@
 class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: [:show, :edit, :update, :destroy]
-  before_action :this_week_widget
+  before_action :load_widgets
 
   # GET /announcements
   # GET /announcements.json
@@ -71,5 +71,10 @@ class AnnouncementsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def announcement_params
       params.require(:announcement).permit(:content, :image, :title)
+    end
+
+    def load_widgets
+      this_week_widget
+      announcement_widget
     end
 end

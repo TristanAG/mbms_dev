@@ -1,10 +1,11 @@
-<div class="sidebar-panel">
-  <div class="basicheader"><%= @announcement.title %></div>
+<% @announcements.each do |a| %>
+  <div class="sidebar-panel">
+    <div class="basicheader"><%= a.title %></div>
 
+      <p><%= image_tag a.image.url, class: "announcement-image" %></p>
+      <p><%= a.content %></p>
 
-  <p><%= image_tag @announcement.image.url, class: "announcement-image" %></p>
-  <p><%= @announcement.content %></p>
+      <%= link_to 'Edit', edit_announcement_path(a) %>
 
-  <%= link_to 'Edit', edit_announcement_path(@announcement) %></td>
-
-</div>
+  </div>
+<% end %>

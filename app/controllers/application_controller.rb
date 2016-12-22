@@ -6,8 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def announcement_widget
-    @announcement = Announcement.first
+    @announcements = Announcement.order("id DESC").all
   end
-
 
 end
