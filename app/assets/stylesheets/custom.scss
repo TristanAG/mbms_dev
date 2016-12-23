@@ -77,6 +77,14 @@ header{
 }
 */
 
+
+.dropdown:hover{
+  position: relative;
+
+  width: 100px;
+  height: 100px;
+}
+
 .announcement-image{
     max-width: 100%;
     border: 1px solid lighten(lightgray, 2%);
@@ -558,4 +566,17 @@ a:hover .sub-sub-header{
 
 a:hover{
   color: $link-hover;
+}
+
+.drop-down{
+  position: absolute;
+  background-color: red;
+  width: 800px;
+  height: 800px;
+
+  display: none;
+
+  &:hover{
+    display: inline-block;
+  }
 }
