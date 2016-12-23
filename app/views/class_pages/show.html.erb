@@ -9,15 +9,14 @@
       <div class="content">
         <h4 class="basicheader"> <%= @class_page.class_title %></h4>
 
+        <% unless @class_page.class_photo.blank? %>
         <%= image_tag @class_page.class_photo.url %>
-
-
+        <% end %>
 
         <p>
           <%= simple_format @class_page.class_content %>
         </p>
-
-
+        
         <p>
           Order Position: <%= @class_page.order_position %>
           <br>
