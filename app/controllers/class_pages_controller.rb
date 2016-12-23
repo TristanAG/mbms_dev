@@ -12,14 +12,14 @@ class ClassPagesController < ApplicationController
   def show
   end
 
-  def new
-    @class_page = ClassPage.new
-  end
-
   def schedule
   end
 
   def edit
+  end
+
+  def new
+    @class_page = ClassPage.new
   end
 
   def create

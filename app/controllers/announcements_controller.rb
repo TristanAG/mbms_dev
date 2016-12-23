@@ -2,28 +2,20 @@ class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: [:show, :edit, :update, :destroy]
   before_action :load_widgets
 
-  # GET /announcements
-  # GET /announcements.json
   def index
     @announcements = Announcement.all
   end
 
-  # GET /announcements/1
-  # GET /announcements/1.json
   def show
   end
 
-  # GET /announcements/new
   def new
     @announcement = Announcement.new
   end
 
-  # GET /announcements/1/edit
   def edit
   end
 
-  # POST /announcements
-  # POST /announcements.json
   def create
     @announcement = Announcement.new(announcement_params)
 
@@ -38,8 +30,6 @@ class AnnouncementsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /announcements/1
-  # PATCH/PUT /announcements/1.json
   def update
     respond_to do |format|
       if @announcement.update(announcement_params)
@@ -52,8 +42,6 @@ class AnnouncementsController < ApplicationController
     end
   end
 
-  # DELETE /announcements/1
-  # DELETE /announcements/1.json
   def destroy
     @announcement.destroy
     respond_to do |format|
