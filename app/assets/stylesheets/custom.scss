@@ -79,6 +79,7 @@ header{
 
 .announcement-image{
     max-width: 100%;
+    border: 1px solid lighten(lightgray, 2%);
 }
 
 .sidebar-divider-mobile{display: none;}
@@ -532,7 +533,7 @@ a:hover .sub-sub-header{
 }
 
 .content img{
-  border: 1px solid #f3f2f3;
+
   padding: 1px;
 
   margin-left: 0px;
