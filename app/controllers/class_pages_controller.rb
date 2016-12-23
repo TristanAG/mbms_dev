@@ -1,42 +1,27 @@
 class ClassPagesController < ApplicationController
   before_action :set_class_page, only: [:show, :edit, :update, :destroy]
   before_action :load_widgets
-  # GET /class_pages
-  # GET /class_pages.json
+  before_action :load_class_pages, only: [:index, :admin, :schedule]
+
   def index
-    @class_pages = ClassPage.order("order_position ASC").all
   end
 
   def admin
-
-    @class_pages = ClassPage.all
   end
 
-  # GET /class_pages/1
-  # GET /class_pages/1.json
   def show
-    @class_pages = ClassPage.order("order_position ASC").all
-    #@class_pages = ClassPage.order("order_position ASC").all
   end
 
-  # GET /class_pages/new
   def new
-
     @class_page = ClassPage.new
-
   end
 
   def schedule
-    @class_pages = ClassPage.order("order_position ASC").all
   end
 
-  # GET /class_pages/1/edit
   def edit
-
   end
 
-  # POST /class_pages
-  # POST /class_pages.json
   def create
     @class_page = ClassPage.new(class_page_params)
 
@@ -51,8 +36,6 @@ class ClassPagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /class_pages/1
-  # PATCH/PUT /class_pages/1.json
   def update
     respond_to do |format|
       if @class_page.update(class_page_params)
@@ -65,8 +48,6 @@ class ClassPagesController < ApplicationController
     end
   end
 
-  # DELETE /class_pages/1
-  # DELETE /class_pages/1.json
   def destroy
     @class_page.destroy
     respond_to do |format|
@@ -75,21 +56,18 @@ class ClassPagesController < ApplicationController
     end
   end
 
-
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_class_page
-      @class_page = ClassPage.friendly.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def class_page_params
-      params.require(:class_page).permit(:start_time, :class_title, :class_photo, :class_content, :order_position)
-    end
+  def set_class_page
+    @class_page = ClassPage.friendly.find(params[:id])
+  end
 
-    def load_widgets
-      this_week_widget
-      announcement_widget
-    end
+  def load_class_pages
+    @class_pages = ClassPage.order("order_position ASC").all
+  end
+
+  def class_page_params
+    params.require(:class_page).permit(:start_time, :class_title, :class_photo, :class_content, :order_position)
+  end
+
 end

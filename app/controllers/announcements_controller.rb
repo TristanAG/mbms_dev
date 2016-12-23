@@ -73,8 +73,4 @@ class AnnouncementsController < ApplicationController
       params.require(:announcement).permit(:content, :image, :title)
     end
 
-    def load_widgets
-      this_week_widget
-      announcement_widget
-    end
 end

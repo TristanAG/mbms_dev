@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
     @announcements = Announcement.order("id DESC").all
   end
 
+  def load_widgets
+    this_week_widget
+    announcement_widget
+  end
+
 end

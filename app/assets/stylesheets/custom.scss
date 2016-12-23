@@ -567,16 +567,3 @@ a:hover .sub-sub-header{
 a:hover{
   color: $link-hover;
 }
-
-.drop-down{
-  position: absolute;
-  background-color: red;
-  width: 800px;
-  height: 800px;
-
-  display: none;
-
-  &:hover{
-    display: inline-block;
-  }
-}
