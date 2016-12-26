@@ -13,14 +13,30 @@
 
   <body>
     <div class="container">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+
       <%= yield %>
 
+
+
       <div class="three columns">
+        <% if controller_name != 'registrations' %>
     		<%= render 'layouts/sidebar' %>
+        <% end %>
     	</div>
-      
+
+
+
+
+
     </div>
 
-		<%= render 'layouts/footer' %>
+		  <%= render 'layouts/footer' %>
+
   </body>
 </html>

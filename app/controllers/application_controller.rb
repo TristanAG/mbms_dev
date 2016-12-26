@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  def current_controller?(names)
+    names.include?(current_controller)
+  end
+
   def this_week_widget
     @class_pages = ClassPage.order("order_position ASC").all
   end
