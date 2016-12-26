@@ -1,10 +1,21 @@
 <% provide(:title, "ADMIN") %>
 
-<div class="nine columns">
+<div class="twelve columns">
   <div class="content">
 
       <% if current_page?(admin_path) %>
-        <p>a d m i n  p a g e</p>
+        <center>
+          <%= link_to image_tag("text.png", alt: "Monterey Bay Meditation Studio logo", width: "500"),
+        root_path  %>
+
+        <br>
+
+        <a href="#classes">Classes</a> | <a href="#schedule">Schedule</a> | <a href="#sidebar">Sidebar</a> | <a href="#mailing-list">Mailing List</a>
+
+        </center>
+
+        <hr>
+
       <% end %>
   </div>
 </div>
