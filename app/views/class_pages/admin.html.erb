@@ -1,2 +1,10 @@
 <% provide(:title, "ADMIN") %>
-<p>a d m i n  p a g e</p>
+
+<div class="nine columns">
+  <div class="content">
+
+      <% if current_page?(admin_path) %>
+        <p>a d m i n  p a g e</p>
+      <% end %>
+  </div>
+</div>
