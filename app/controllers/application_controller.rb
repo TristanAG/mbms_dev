@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   end
 
   def this_week_widget
-    @class_pages = ClassPage.order("order_position ASC").all
+    #@class_pages = ClassPage.order("order_position ASC").all
+    @classes = ClassPage.where(start_time: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
     #how do i only pull the relevant dates?
 
     #today = Date.today # Today's date
