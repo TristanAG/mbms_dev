@@ -498,22 +498,32 @@ box-shadow: 0px 7px 8px -2px rgba(158,150,158,0.53);
 
   text-align: left;
   letter-spacing: .05em;
-
-
-
 }
 
-.sub-header{
-  font-size: 1.1em;
+h1{
+  font-family: 'Nunito', sans-serif;
+  color: $basicheader;
+  /*font-family: 'Abel', sans-serif;*/
+  padding-top: 12px;
+  margin-bottom: 8px;
+
+  font-size: 25px;
+
+  text-align: left;
+  letter-spacing: .05em;
+}
+
+.sub-header, h2{
+  font-size: 1.2em;
 
   margin-bottom: 6px;
   font-family: 'Nunito', sans-serif;
   color: $sub-header;
 }
 
-.sub-sub-header{
+.sub-sub-header, h3{
 
-  font-size: .8em;
+  font-size: 1em;
 
   margin-bottom: 4px;
   font-family: 'Nunito', sans-serif;

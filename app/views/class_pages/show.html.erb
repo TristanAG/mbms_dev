@@ -7,7 +7,7 @@
   <div class="seven columns" style="background-color:white">
 
       <div class="content">
-        <h4 class="basicheader"> <%= @class_page.class_title %></h4>
+        <h1> <%= @class_page.class_title %></h1>
 
         <% unless @class_page.class_photo.blank? %>
         <%= image_tag @class_page.class_photo.url %>
@@ -16,7 +16,7 @@
         <p>
           <%= simple_format @class_page.class_content %>
         </p>
-        
+
         <p>
           Order Position: <%= @class_page.order_position %>
           <br>

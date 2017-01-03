@@ -1,6 +1,6 @@
 <% @announcements.each do |a| %>
   <div class="sidebar-panel">
-    <div class="basicheader"><%= a.title %></div>
+    <h1><%= a.title %></h1>
 
       <p><%= image_tag a.image.url, class: "announcement-image" %></p>
       <p><%= a.content %></p>
