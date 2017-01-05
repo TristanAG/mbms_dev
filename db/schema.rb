@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226151205) do
+ActiveRecord::Schema.define(version: 20170105210607) do
 
   create_table "announcement_widgets", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20161226151205) do
     t.datetime "class_photo_updated_at"
     t.datetime "start_time"
     t.index ["slug"], name: "index_class_pages_on_slug"
+  end
+
+  create_table "registration_forms", force: :cascade do |t|
+    t.string   "class_name"
+    t.string   "student_name"
+    t.string   "student_email"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|

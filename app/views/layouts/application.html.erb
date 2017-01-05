@@ -12,9 +12,9 @@
   </head>
 
   <body>
-    <% if current_page?(admin_path) %>
+    <% if current_page?(admin_path) || controller_name == 'registration_forms' %>
       <div class="container">
-  
+
         <%= yield %>
 
       </div>
