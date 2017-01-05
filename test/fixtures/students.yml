@@ -3,9 +3,7 @@
 one:
   class_name: MyString
   student_name: MyString
-  student_email: MyString
 
 two:
   class_name: MyString
   student_name: MyString
-  student_email: MyString

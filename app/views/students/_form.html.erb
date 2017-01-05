@@ -1,10 +1,10 @@
-<%= form_for(registration_form) do |f| %>
-  <% if registration_form.errors.any? %>
+<%= form_for(student) do |f| %>
+  <% if student.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(registration_form.errors.count, "error") %> prohibited this registration_form from being saved:</h2>
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
       <ul>
-      <% registration_form.errors.full_messages.each do |message| %>
+      <% student.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -19,11 +19,6 @@
   <div class="field">
     <%= f.label :student_name %>
     <%= f.text_field :student_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :student_email %>
-    <%= f.text_field :student_email %>
   </div>
 
   <div class="actions">

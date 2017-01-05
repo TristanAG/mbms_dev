@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :registration_forms
+  resources :students
   devise_for :users
   resources :announcements
   #resources :class_pages

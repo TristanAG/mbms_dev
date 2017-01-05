@@ -1,2 +1,0 @@
-class RegistrationForm < ApplicationRecord
-end
