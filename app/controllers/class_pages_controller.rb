@@ -10,6 +10,7 @@ class ClassPagesController < ApplicationController
   end
 
   def show
+    flash[:class_title] = @class_page.class_title
   end
 
   def schedule
