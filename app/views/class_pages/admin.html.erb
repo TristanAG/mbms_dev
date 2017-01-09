@@ -1,37 +1,56 @@
 <% provide(:title, "ADMIN") %>
 
-<div class="twelve columns">
-  <div class="content">
+<% if current_page?(admin_path) %>
 
-      <% if current_page?(admin_path) %>
+<div class="content">
+  <div class="row">
+    <div class="twelve columns">
+
+
+
         <center>
           <%= link_to image_tag("text.png", alt: "Monterey Bay Meditation Studio logo", width: "500"),
         root_path  %>
-
-        <br>
-
-        <a href="#classes">Classes</a> | <a href="#schedule">Schedule</a> | <a href="#sidebar">Sidebar</a> | <a href="#mailing-list">Mailing List</a>
-
+          <br>
+          <a href="#classes">Classes</a> | <a href="#schedule">Schedule</a> | <a href="#sidebar">Sidebar</a> | <a href="#mailing-list">Mailing List</a>
+          <hr>
         </center>
+    </div>
+  </div>
+  <div class="row">
+    <div class="basicheader">Classes</div>
+  </div>
+  <div class="row">
+    <div class="three columns">
 
-        <hr>
 
-        <div class="basicheader">Classes</div>
-        <br>
-        <% @class_pages.each do |class_page| %>
-            <p>
-            <%= link_to "#{class_page.class_title}", class_page  %>
 
-            <br>
-              Order Position: <%= class_page.order_position %>
-            <br>
-            <small>
-            <%= link_to 'Edit', edit_class_page_path(class_page) %> |
-            <%= link_to 'Destroy', class_page, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </small>
-          </p>
-        <% end %>
 
+        <p>
+          <%= link_to 'New Class Page', new_class_page_path %>
+        </p>
+
+
+
+
+    </div>
+    <div class="nine columns">
+      <% @class_pages.each do |class_page| %>
+          <p>
+          <%= link_to "#{class_page.class_title}", class_page  %>
+
+          <br>
+            Order Position: <%= class_page.order_position %>
+          <br>
+          <small>
+          <%= link_to 'Edit', edit_class_page_path(class_page) %> |
+          <%= link_to 'Destroy', class_page, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </small>
+        </p>
       <% end %>
+    </div>
+    </div>
   </div>
 </div>
+
+<% end %>
