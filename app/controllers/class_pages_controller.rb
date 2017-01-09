@@ -14,6 +14,7 @@ class ClassPagesController < ApplicationController
   end
 
   def schedule
+    @recurring_classes = ClassPage.all.where(:class_title => "Taco Tuesday")
   end
 
   def edit

@@ -11,10 +11,19 @@
 
 
 
+
       <%= month_calendar events: @class_pages do |date, class_pages| %>
+
         <span class="day-num"><%= date.day %></span>
 
+        <% if date.strftime("%A") == "Tuesday" %>
+        <% @recurring_classes.each do |class_page| %>
+          <%= class_page.class_title %> | start day: <%= class_page.start_time.strftime("%A") %>
+        <% end %>
+        <% end %>
+
         <% class_pages.each do |class_page| %>
+
           <%= class_page.class_title %>
         <% end %>
 
@@ -24,13 +33,7 @@
 
 
 
-      <% @class_pages.each do |class_page| %>
-        <ul>
-          <li>
-            <%= link_to "#{class_page.class_title}", class_page  %>
-          </li>
-        </ul>
-      <% end %>
+
 
     </div>
   </div>
