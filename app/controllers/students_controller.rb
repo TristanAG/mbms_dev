@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
-    @student = Student.new({class_name: flash[:class_title], student_name: @student.student_name})
+    @student = Student.new({class_name: session[:class_title], student_name: @student.student_name})
 
     respond_to do |format|
       if @student.save

@@ -9,6 +9,10 @@
       <div class="content">
         <h1> <%= @class_page.class_title %></h1>
 
+        <p>
+          recurring event: <%= @class_page.recurring_event %>
+        </p>
+        
         <% unless @class_page.class_photo.blank? %>
         <%= image_tag @class_page.class_photo.url %>
         <% end %>

@@ -10,11 +10,11 @@ class ClassPagesController < ApplicationController
   end
 
   def show
-    flash[:class_title] = @class_page.class_title
+    session[:class_title] = @class_page.class_title
   end
 
   def schedule
-    @recurring_classes = ClassPage.all.where(:class_title => "Taco Tuesday")
+    @recurring_classes = ClassPage.all.where(:recurring_event => true)
   end
 
   def edit
@@ -69,7 +69,7 @@ class ClassPagesController < ApplicationController
   end
 
   def class_page_params
-    params.require(:class_page).permit(:start_time, :class_title, :class_photo, :class_content, :order_position)
+    params.require(:class_page).permit(:start_time, :class_title, :recurring_event, :class_photo, :class_content, :order_position)
   end
 
 end

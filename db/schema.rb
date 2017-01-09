@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105213150) do
+ActiveRecord::Schema.define(version: 20170109215750) do
 
   create_table "announcement_widgets", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170105213150) do
     t.integer  "class_photo_file_size"
     t.datetime "class_photo_updated_at"
     t.datetime "start_time"
+    t.boolean  "recurring_event"
     t.index ["slug"], name: "index_class_pages_on_slug"
   end
 

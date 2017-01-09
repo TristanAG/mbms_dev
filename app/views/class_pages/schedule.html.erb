@@ -16,7 +16,7 @@
 
         <span class="day-num"><%= date.day %></span>
         <br>
-        <% if date.strftime("%A") == "Tuesday" %>
+        <% if date.strftime("%A") == "Thursday" %>
           <% @recurring_classes.each do |class_page| %>
             <%= class_page.class_title %>
             <br>

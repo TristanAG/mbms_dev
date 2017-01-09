@@ -1,5 +1,11 @@
 <h1>New Student</h1>
 
-<%= render 'form', student: @student %>
+<% if !session[:class_title]%>
+  <p>no class set, please choose a <%= link_to 'class', classes_path %> first</p>
+<% else %>
+  <h1><%= session[:class_title] %></h1>
 
-<%= link_to 'Back', students_path %>
+  <%= render 'form', student: @student %>
+
+  <%= link_to 'Back', students_path %>
+<% end %>
