@@ -579,11 +579,18 @@ a:hover{
   color: $link-hover;
 }
 
-button, input[type="submit"]{
+.button, button, input[type="submit"]{
+
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+
   background-color: $basicheader;
   font-family: 'Abel', sans-serif;
   color:white;
   transition: .4s;
+
+  text-decoration: none;
 
   border: 1px solid $basicheader;
 
@@ -600,6 +607,8 @@ button, input[type="submit"]{
 
 
   }
+
+
 }
 
 .special{

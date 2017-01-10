@@ -16,21 +16,31 @@
 
         <span class="day-num"><%= date.day %></span>
         <br>
-        <% if date.strftime("%A") == "Thursday" %>
-          <% @recurring_classes.each do |class_page| %>
-            <%= class_page.class_title %>
-            <br>
+
+
+        <% @recurring_classes.each do |class_page| %>
+          <% if date.strftime("%A") == class_page.start_time.strftime("%A") %>
+          <%= class_page.class_title %>
+          <br>
           <% end %>
         <% end %>
 
+
+
         <% class_pages.each do |class_page| %>
-          <%= class_page.class_title %>
+          <% if !class_page.recurring_event %>
+            <%= class_page.class_title %>
+          <% end %>
           <br>
         <% end %>
 
       <% end %>
 
-
+      <!-- potentiel but with above ruby: need to maybe first gather all classes for the day, both
+      recurring and regular class pages.
+      then you gotta but it all into the same collection
+      and then you gotta order them by date... it may not be a bug depending on how simple_calendar renders events
+     -->
 
 
 
