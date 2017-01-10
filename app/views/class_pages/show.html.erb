@@ -12,7 +12,7 @@
         <p>
           recurring event: <%= @class_page.recurring_event %>
         </p>
-        
+
         <% unless @class_page.class_photo.blank? %>
         <%= image_tag @class_page.class_photo.url %>
         <% end %>
@@ -21,17 +21,10 @@
           <%= simple_format @class_page.class_content %>
         </p>
 
-        <p>
-          <%= link_to 'S I G N  U P', new_student_path %>
-        </p>
+        <button>
+          Sign Up
+        </button>
 
-        <p>
-          Order Position: <%= @class_page.order_position %>
-          <br>
-          <%= link_to 'Edit', edit_class_page_path(@class_page) %> |
-          <%= link_to 'Back', class_pages_path %> |
-          <%= link_to 'Destroy', class_page_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </p>
 
       </div>
     </div>

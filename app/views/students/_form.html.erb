@@ -1,3 +1,4 @@
+<div class="content">
 <%= form_for(student) do |f| %>
   <% if student.errors.any? %>
     <div id="error_explanation">
@@ -11,14 +12,37 @@
     </div>
   <% end %>
 
-  
+
 
   <div class="field">
-    <%= f.label :student_name %>
+    First Name:
+    <br>
+    <%= f.text_field :student_name %>
+  </div>
+  <div class="field">
+    Last Name:
+    <br>
+    <%= f.text_field :student_name %>
+  </div>
+  <div class="field">
+    Email:
+    <br>
+    <small>To send confirmation of reservation, location, and details.</small>
+    <br>
+    <%= f.text_field :student_name %>
+  </div>
+  <div class="field">
+    Is there anything you would like us to know about you?<br>
     <%= f.text_field :student_name %>
   </div>
 
+  <div class="field">
+    <h2>Care to join our Mailing List?</h2>
+
+  </div>
+  <br>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Register" %>
   </div>
 <% end %>

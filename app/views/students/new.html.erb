@@ -1,11 +1,37 @@
-<h1>New Student</h1>
+
+
+
+      <center>
+        <%= link_to image_tag("text.png", alt: "Monterey Bay Meditation Studio logo", width: "400", style: "margin-top: 20px; margin-bottom: 12px;"),
+      root_path  %>
+        <br>
+        <a href="#classes">Return to Main Site</a>
+        <hr>
+      </center>
+
 
 <% if !session[:class_title]%>
-  <p>no class set, please choose a <%= link_to 'class', classes_path %> first</p>
-<% else %>
-  <h1><%= session[:class_title] %></h1>
 
+  <p>Oops! please choose a <%= link_to 'class', classes_path %> first</p>
+<% else %>
+
+
+  <h1 style="text-align:center">Thanks for you interesest in<br>
+    <b><%= session[:class_title] %></b></h1>
+  <h3>We're excited to share this event with you!</h3>
+  <small>Please fill out the form below to register for <%= session[:class_title] %></small>
+  <br>
+  <small>
+    Classes are $$$ and can be pain in cash or check upon arrival. <br>
+    <%= session[:class_title] %> is a four week course that occurs:
+  </small>
+  <br>
+  <br>
   <%= render 'form', student: @student %>
 
+  <p>
+
+  </p>
   <%= link_to 'Back', students_path %>
 <% end %>
+</div>
