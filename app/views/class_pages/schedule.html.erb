@@ -20,7 +20,7 @@
 
         <% @recurring_classes.each do |class_page| %>
           <% if date.strftime("%A") == class_page.start_time.strftime("%A") %>
-          <%= class_page.class_title %>
+          <%= link_to class_page.class_title, class_page %>
           <br>
           <% end %>
         <% end %>

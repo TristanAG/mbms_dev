@@ -3,6 +3,8 @@ class ClassPagesController < ApplicationController
   before_action :load_widgets
   before_action :load_class_pages, only: [:index, :admin, :schedule, :show]
 
+  
+
   def index
   end
 
