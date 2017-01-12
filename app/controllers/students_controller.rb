@@ -3,6 +3,9 @@ class StudentsController < ApplicationController
 
   # GET /students
   # GET /students.json
+
+  
+
   def index
     @students = Student.all
   end

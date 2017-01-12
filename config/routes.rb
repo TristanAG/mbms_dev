@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'class_pages#admin'
 
+  get '/thank-you', to: 'static_pages#thank_you'
+
   root 'static_pages#home'
   get '/teachers', to: 'static_pages#teachers'
   get '/schedule', to: 'class_pages#schedule'
