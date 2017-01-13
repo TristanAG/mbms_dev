@@ -9,11 +9,10 @@
         <%= link_to image_tag("text.png", alt: "Monterey Bay Meditation Studio logo", width: "500"), root_path  %>
         <br>
         <a href="#classes">Classes</a> |
-        <a href="#schedule">Schedule</a> |
         <a href="#sidebar">Sidebar</a> |
-        <a href="#mailing-list">Mailing List</a>
-        <hr>
+        <a href="#mailing-list">Students</a>
       </center>
+      <hr>
     </div>
   </div>
 
@@ -40,6 +39,15 @@
           </small>
         </p>
       <% end %>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="three columns">
+      <div class="basicheader">Sidebar</div>
+    </div>
+    <div class="three columns">
+      <%= render 'layouts/widgets/announcement' %>
     </div>
   </div>
 </div>
