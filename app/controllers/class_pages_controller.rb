@@ -2,11 +2,15 @@ class ClassPagesController < ApplicationController
   before_action :set_class_page, only: [:show, :edit, :update, :destroy]
   before_action :load_widgets
   before_action :load_class_pages, only: [:index, :admin, :schedule, :show]
+  #before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy, :admin]
 
   def index
   end
 
   def admin
+    if !user_signed_in?
+      redirect_to root_path
+    end
   end
 
   def show
