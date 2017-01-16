@@ -1,10 +1,9 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_check, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /students
   # GET /students.json
-
-  
 
   def index
     @students = Student.all
@@ -32,7 +31,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { redirect_to thank_you_path }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
@@ -74,5 +73,11 @@ class StudentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
       params.require(:student).permit(:class_name, :student_name)
+    end
+
+    def redirect_check
+      if !user_signed_in?
+        redirect_to root_path
+      end
     end
 end

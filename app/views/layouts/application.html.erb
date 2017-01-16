@@ -10,13 +10,16 @@
   </head>
 
   <body>
-    <%= link_to "Home", root_path %> |
-    <%= link_to "Admin", admin_path %> |
-    <% if user_signed_in? %>
-      <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to 'Sign In', new_user_session_path %>
-    <% end %>
+    <div style="text-align:right; padding: 8px;">
+      <% if user_signed_in? %>
+        <%= link_to "Home", root_path %> |
+        <%= link_to "Admin", admin_path %> |
+        <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to 'Sign In', new_user_session_path %>
+      <% end %>
+    </div>
+
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -24,6 +27,7 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
     <% if current_page?(admin_path) || controller_name == 'students' || current_page?(new_user_session_path)%>
+
       <div class="container">
 
         <%= yield %>

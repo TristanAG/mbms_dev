@@ -2,7 +2,7 @@ class ClassPagesController < ApplicationController
   before_action :set_class_page, only: [:show, :edit, :update, :destroy]
   before_action :load_widgets
   before_action :load_class_pages, only: [:index, :admin, :schedule, :show]
-  #before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy, :admin]
+  before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
   end

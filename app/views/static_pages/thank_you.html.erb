@@ -1,1 +1,11 @@
-<h1>hello</h1>
+<% provide(:title, "Teachers") %>
+<div class="nine columns">
+<div class="content">
+	<h1>Thank You for registering for <%= session[:class_title] %>!</h1>
+
+  <p>You have successfully signed up for <%= session[:class_title] %></p>
+  <p>If you have any questions, please email //teacher name should display dynamically here// or call the Studio at 111-111-1111</p>
+  <p>We look forward to seeing you!</p>
+  <p>-<a href="#">Teacher Name</a></p>
+</div>
+</div>
