@@ -37,8 +37,8 @@ header{
   background-color:lighten(lightgray, 10%);
 
   .nav-links{
-    margin-right: 40px;
-    margin-left: 40px;
+    margin-right: 36px;
+    margin-left: 36px;
     font-size: 17px;
     color: #3D4345;
     text-decoration: none;
@@ -54,10 +54,11 @@ header{
 
   .nav-links-mobile{
     font-size: 16.5px;
-    color: white;
+    text-align: center;
     text-decoration: none;
     letter-spacing: 1px;
     font-family: 'Nunito', sans-serif;
+
   }
 }
 
@@ -405,43 +406,54 @@ box-shadow: 0px 7px 8px -2px rgba(158,150,158,0.53);
   display: none;
 }
 
+#menu-display{
+  display:none
+}
+@media (max-width: 745px) {
 
-@media (max-width: 746px) {
+  #menu-display{
+    display: block;
+
+    font-size: 17px;
+    color: #3D4345;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-family: 'Nunito', sans-serif;
+
+    &:hover{
+      cursor: pointer;
+      transition: .3s;
+      color: $basicheader;
+    }
+  }
 
 
-
-   .mobile-nav{
-   display:block;
-
-   text-align: center;
-
+  .mobile-nav{
+    display:block;
+    text-align: center;
     background-color: #696969;
 
     border-top: 1px solid #E1E1E1;
-  border-bottom: 1px solid #E1E1E1;
+    border-bottom: 1px solid #E1E1E1;
     font-family: 'Abel', sans-serif;
 
     margin-bottom: 4px;
     margin-top: -8px;
-/*
--webkit-box-shadow: 0px 7px 8px -2px rgba(158,150,158,0.53);
--moz-box-shadow: 0px 7px 8px -2px rgba(158,150,158,0.53);
-box-shadow: 0px 7px 8px -2px rgba(158,150,158,0.53);
-*/
   }
 
   .nav-links-mobile{
     display: inline-block;
-    margin-right: 15px;
-    margin-left: 15px;
+
     font-size: 13.5px;
-    max-width: 120px;
 
-  color: white;
-  text-decoration: none;
-  letter-spacing: 1px;
+    margin-bottom: 7px;
 
-  font-family: 'Nunito', sans-serif;
+
+
+    text-decoration: none;
+    letter-spacing: 1px;
+
+    font-family: 'Nunito', sans-serif;
   }
 
   .nav-links{
@@ -455,14 +467,13 @@ box-shadow: 0px 7px 8px -2px rgba(158,150,158,0.53);
 @media (max-width: 443px) {
    .nav-links-mobile{
     display: inline-block;
-    margin-right: 3px;
-    margin-left: 3px;
+
     font-size: 13.5px;
-    max-width: 120px;
 
 
 
-  color: white;
+
+
   text-decoration: none;
   letter-spacing: 1px;
 
@@ -613,6 +624,10 @@ a:hover{
 
   }
 
+}
+
+hr{
+  margin: 4px;
 }
 
 .special{
