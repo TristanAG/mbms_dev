@@ -8,9 +8,13 @@ class ClassPagesController < ApplicationController
   end
 
   def admin
+
+    load_students
+
     if !user_signed_in?
       redirect_to root_path
     end
+
   end
 
   def show

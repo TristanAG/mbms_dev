@@ -5,7 +5,9 @@
   <% @classes.each do |class_page| %>
     <ul>
       <li>
-        <%= link_to "#{class_page.class_title}", class_page  %> | <small><%= class_page.start_time.strftime("%l:%M %p") %></small>
+        <%= link_to "#{class_page.class_title}", class_page  %>
+        <br>
+        <small><%= class_page.start_time.strftime("%l:%M %p") %></small>
       </li>
     </ul>
   <% end %>
