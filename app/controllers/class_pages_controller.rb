@@ -23,6 +23,7 @@ class ClassPagesController < ApplicationController
 
   def schedule
     @recurring_classes = ClassPage.all.where(:recurring_event => true)
+    @current_months_classes = ClassPage.where(start_time: Time.current.beginning_of_month..Time.current.end_of_month)
   end
 
   def edit
