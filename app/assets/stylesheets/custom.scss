@@ -640,3 +640,21 @@ hr{
   background-image:-webkit-gradient(linear, left bottom, left top, color-stop(22%,white), color-stop(60%,#E4EFF2),color-stop(100%,#7ec0de));
 
 }
+
+//schedule control
+@media (min-width: 545px) {
+  #full-schedule-view{
+    display: block;
+  }
+  #mobile-schedule-view{
+    display: none;
+  }
+}
+@media (max-width: 545px) {
+  #full-schedule-view{
+    display: none;
+  }
+  #mobile-schedule-view{
+    display: block;
+  }
+}
