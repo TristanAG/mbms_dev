@@ -23,7 +23,7 @@ class ClassPagesController < ApplicationController
 
   def schedule
 
-    @current_months_classes = ClassPage.where(start_time: Time.current.beginning_of_month..Time.current.end_of_month)
+    @current_months_classes = ClassPage.where(start_time: Time.current.beginning_of_month..Time.current.end_of_month).where(:recurring_event => false)
 
     #recurring_class_refs currently returns 2 events, taco tuesday, and drop-in meditation
     @recurring_class_refs = ClassPage.all.where(:recurring_event => true)
@@ -34,12 +34,14 @@ class ClassPagesController < ApplicationController
 
     #i need this to loop 31 times, which it's doing
     (Time.current.beginning_of_month.day..Time.current.end_of_month.day).each do |day_of_month|
+
       delta = Date.today.day - day_of_month
       current_month_day = Date.today - delta
       #this should hit twice (for both refs)
       @recurring_class_refs.each do |class_page|
 
         if Time.current.strftime('%A') == current_month_day.strftime('%A')
+
           @collection << class_page
         end
 
@@ -48,7 +50,7 @@ class ClassPagesController < ApplicationController
     end
 
     @all_classes = @collection + @current_months_classes
-    @all_classes.sort { |a,b| a.created_at <=> b.created_at }
+    #@all_classes.sort { |a,b| a.start_time <=> b.start_time }
     #@ordered_classes = @all_classes.order(:created_at)
   end
 
