@@ -40,7 +40,7 @@
 
 
 
-        <% @collection.each do |class_page| %>
+        <% @all_classes.each do |class_page| %>
           <%= class_page.start_time.strftime("%A %y") %> |
           <%= link_to class_page.class_title, class_page %> |
           <%= class_page.start_time.strftime("%l:%M %p") %>

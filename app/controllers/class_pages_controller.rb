@@ -33,25 +33,23 @@ class ClassPagesController < ApplicationController
 
 
     #i need this to loop 31 times, which it's doing
-    (Time.current.beginning_of_month.day..Time.current.end_of_month.day).each do
-
-      #on each pass i need to run another pass
-      #ok, it's fuckin up because i'm checking it agains today i think
-      #that's why it's only returning the dates on thursday
-      #so what kind of loop is needed then? As I loop through each day of the month, I need to check if the current day
-      #in the loop is the same day as one of the recurring_refs day. That makes sense
-
-
-
+    (Time.current.beginning_of_month.day..Time.current.end_of_month.day).each do |day_of_month|
+      delta = Date.today.day - day_of_month
+      current_month_day = Date.today - delta
+      #this should hit twice (for both refs)
       @recurring_class_refs.each do |class_page|
-        #if the current day (today) == the day of the given recurring_class_ref
-        if Time.current.strftime('%A') == class_page.start_time.strftime('%A')
+
+        if Time.current.strftime('%A') == current_month_day.strftime('%A')
           @collection << class_page
         end
+
       end
+      #leading to all 31 days being populated with 0,1, or 2 classes.
     end
 
-    @all_classes = @current_months_classes + @collection
+    @all_classes = @collection + @current_months_classes
+    @all_classes.sort { |a,b| a.created_at <=> b.created_at }
+    #@ordered_classes = @all_classes.order(:created_at)
   end
 
   def edit
