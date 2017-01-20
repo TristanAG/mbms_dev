@@ -22,8 +22,36 @@ class ClassPagesController < ApplicationController
   end
 
   def schedule
-    @recurring_classes = ClassPage.all.where(:recurring_event => true)
+
     @current_months_classes = ClassPage.where(start_time: Time.current.beginning_of_month..Time.current.end_of_month)
+
+    #recurring_class_refs currently returns 2 events, taco tuesday, and drop-in meditation
+    @recurring_class_refs = ClassPage.all.where(:recurring_event => true)
+
+    @collection = []
+
+
+
+    #i need this to loop 31 times, which it's doing
+    (Time.current.beginning_of_month.day..Time.current.end_of_month.day).each do
+
+      #on each pass i need to run another pass
+      #ok, it's fuckin up because i'm checking it agains today i think
+      #that's why it's only returning the dates on thursday
+      #so what kind of loop is needed then? As I loop through each day of the month, I need to check if the current day
+      #in the loop is the same day as one of the recurring_refs day. That makes sense
+
+
+
+      @recurring_class_refs.each do |class_page|
+        #if the current day (today) == the day of the given recurring_class_ref
+        if Time.current.strftime('%A') == class_page.start_time.strftime('%A')
+          @collection << class_page
+        end
+      end
+    end
+
+    @all_classes = @current_months_classes + @collection
   end
 
   def edit
