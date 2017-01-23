@@ -22,13 +22,6 @@ class ClassPagesController < ApplicationController
   end
 
   def schedule
-
-    
-
-
-
-
-
   end
 
   def edit
@@ -39,7 +32,101 @@ class ClassPagesController < ApplicationController
   end
 
   def create
+
+    #building the recurring class feature
     @class_page = ClassPage.new(class_page_params)
+    day_of_week = @class_page.start_time.strftime('%A')
+    first_day_of_year = Time.current.beginning_of_year
+
+    #loop -1 thru 5 to check the days here
+    #basically loop through the first instance of each weekday to find a match
+    #this function takes a class and posts the first instance of the year
+    (first_day_of_year.day - 1..first_day_of_year.day + 5).each do |i|
+      #given the set weekday of the event, post to the first instance that event will occur in the given year
+      if day_of_week == Date::DAYNAMES[i]
+        actual_day_num = i + 1
+        @class_page.update({start_time: @class_page.start_time.change(day: actual_day_num)})
+
+        increment_amount = actual_day_num + 7
+        (1..4).each do
+          #so now it's a matter of incrementing by the correct amount for each pass
+          #and this can be expanded out for the full year
+          @new_class_instance = ClassPage.new(class_page_params)
+
+          #aww, ok, so just setting the increment amount to 7 will cause it to do the same thing every time..
+          #it can still be incremented by
+          #ooooh ok, this exposes another big issue... the day, it can only be like 1 - 31... so when you exceed that it all fucks up
+          #so it needs to kinda update the whole date object perhaps is the solution
+          #teh increment amount neesd to be a new start_date entirely!
+          #new_start_time = @new_class_instance.start_time + increment_amount
+          @new_class_instance.update({start_time: @class_page.start_time.change(day: increment_amount)})
+          increment_amount += 7
+
+        end
+
+        break
+      end
+    end
+
+
+
+
+
+
+
+    # first_day_of_the_year.beginning_of_week
+    #
+    # @class_page = ClassPage.new(class_page_params)
+    # first_instance_day = @class_page.start_time.strftime('%A')
+    #
+    #
+    #
+    # @class_page.update_attribute(:start_time, start)
+    # @class_page.save
+    #
+    # next_day = @class_page.start_time.change(:day, )
+    #
+    # @class_page = ClassPage.new(class_page_params)
+    # @class_page.update_attribute(:start_time, start+7)
+    # @class_page.save
+
+
+    # @class_page.save
+
+    # if @class_page.recurring_event
+    #
+    #   #next_day = @class_page.start_time.day + 7
+    #   start = Time.current.beginning_of_year.day
+    #   finish = Time.current.end_of_week.day
+    #
+    #   next_day = @class_page.start_time.day
+    #
+    #   (start..finish).each do
+    #     @new_instance = ClassPage.new(class_page_params)
+    #     @new_instance.update_attribute(:start_time, Date.today + next_day)
+    #     next_day = next_day + 1
+    #     @new_instance.save
+
+
+
+        # @new_class_instance = ClassPage.new(class_page_params)
+        # temp_date = @new_class_instance.start_time.change(day: next_day)
+        # @new_class_instance.update_attribute(:start_time, temp_date)
+        # @new_class_instance.save
+
+
+
+
+        # @new_class_instance = ClassPage.new(class_page_params)
+        # temp_date = @new_class_instance.start_time.change(day: next_day)
+        # @new_class_instance.update_attribute(:start_time, temp_date)
+        # @new_class_instance.save
+
+        #next_day = @new_class_instance.start_time.day + 7
+
+
+
+
 
     respond_to do |format|
       if @class_page.save

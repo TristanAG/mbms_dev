@@ -16,28 +16,18 @@
         <%= month_calendar events: @class_pages do |date, class_pages| %>
           <span class="day-num"><b><%= date.day %></b></span>
           <br>
-
-          
-
           <% class_pages.each do |class_page| %>
-            <% if !class_page.recurring_event %>
-              <%= link_to class_page.class_title, class_page %><br>
-              <%= class_page.start_time.strftime("%l:%M %p") %><br>
-            <% end %>
+            <%= link_to class_page.class_title, class_page %><br>
+            <%= class_page.start_time.strftime("%l:%M %p") %><br>
           <% end %>
         <% end %>
       </div>
 
       <div id="mobile-schedule-view">
 
-        <h1><%= @class_pages.first.start_time.strftime("%B")  %></h1>
+        <h1><%= @class_pages.first.start_time.strftime("%B") %></h1>
         <br>
-
-
-        <% i = 1 %>
         <% @class_pages.each do |class_page| %>
-          check: <%= i %>
-          <% i = i+1 %>
           <%= class_page.start_time.strftime("%A %y") %> |
           <%= link_to class_page.class_title, class_page %> |
           <%= class_page.start_time.strftime("%l:%M %p") %>
