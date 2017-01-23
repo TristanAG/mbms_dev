@@ -17,12 +17,12 @@
           <span class="day-num"><b><%= date.day %></b></span>
           <br>
 
-          <% @recurring_class_refs.each do |class_page| %>
+          <!-- <% @recurring_class_refs.each do |class_page| %>
             <% if date.strftime("%A") == class_page.start_time.strftime("%A") %>
               <%= link_to class_page.class_title, class_page %><br>
               <%= class_page.start_time.strftime("%l:%M %p") %><br>
             <% end %>
-          <% end %>
+          <% end %> -->
 
           <% class_pages.each do |class_page| %>
             <% if !class_page.recurring_event %>

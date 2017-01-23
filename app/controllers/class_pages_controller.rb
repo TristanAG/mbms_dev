@@ -35,9 +35,21 @@ class ClassPagesController < ApplicationController
     #i need this to loop 31 times, which it's doing
     (Time.current.beginning_of_month.day..Time.current.end_of_month.day).each do |day_of_month|
 
+
+      #
+      #
+      # The issue now is that the date somehow needs to be updated or rendered in such a way
+      # to differentiate the recurring events from each other; i mean that to say that the
+      # day_of_month variable (which is being generatted here) needs to be added to
+      # the recurring_class as it is being saved here...
+      #
+      # right now the recurring class will always have the same day_of_week and date
+      # I need to somehow update that to allow the @collection to be ordered properly
+      #
+
       delta = Date.today.day - day_of_month
       current_month_day = Date.today - delta
-      #this should hit twice (for both refs)
+
       @recurring_class_refs.each do |class_page|
 
         if Time.current.strftime('%A') == current_month_day.strftime('%A')
@@ -46,7 +58,7 @@ class ClassPagesController < ApplicationController
         end
 
       end
-      #leading to all 31 days being populated with 0,1, or 2 classes.
+
     end
 
     @all_classes = @collection + @current_months_classes
