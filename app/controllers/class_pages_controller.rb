@@ -23,47 +23,12 @@ class ClassPagesController < ApplicationController
 
   def schedule
 
-    @current_months_classes = ClassPage.where(start_time: Time.current.beginning_of_month..Time.current.end_of_month).where(:recurring_event => false)
-
-    #recurring_class_refs currently returns 2 events, taco tuesday, and drop-in meditation
-    @recurring_class_refs = ClassPage.all.where(:recurring_event => true)
-
-    @collection = []
+    
 
 
 
-    #i need this to loop 31 times, which it's doing
-    (Time.current.beginning_of_month.day..Time.current.end_of_month.day).each do |day_of_month|
 
 
-      #
-      #
-      # The issue now is that the date somehow needs to be updated or rendered in such a way
-      # to differentiate the recurring events from each other; i mean that to say that the
-      # day_of_month variable (which is being generatted here) needs to be added to
-      # the recurring_class as it is being saved here...
-      #
-      # right now the recurring class will always have the same day_of_week and date
-      # I need to somehow update that to allow the @collection to be ordered properly
-      #
-
-      delta = Date.today.day - day_of_month
-      current_month_day = Date.today - delta
-
-      @recurring_class_refs.each do |class_page|
-
-        if Time.current.strftime('%A') == current_month_day.strftime('%A')
-
-          @collection << class_page
-        end
-
-      end
-
-    end
-
-    @all_classes = @collection + @current_months_classes
-    #@all_classes.sort { |a,b| a.start_time <=> b.start_time }
-    #@ordered_classes = @all_classes.order(:created_at)
   end
 
   def edit
