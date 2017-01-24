@@ -34,40 +34,46 @@ class ClassPagesController < ApplicationController
   def create
 
     #building the recurring class feature
+    #-----#
     @class_page = ClassPage.new(class_page_params)
+
     day_of_week = @class_page.start_time.strftime('%A')
     first_day_of_year = Time.current.beginning_of_year
 
     #loop -1 thru 5 to check the days here
     #basically loop through the first instance of each weekday to find a match
     #this function takes a class and posts the first instance of the year
+
+    #perhaps this should be an until loop
     (first_day_of_year.day - 1..first_day_of_year.day + 5).each do |i|
       #given the set weekday of the event, post to the first instance that event will occur in the given year
       if day_of_week == Date::DAYNAMES[i]
         actual_day_num = i + 1
         @class_page.update({start_time: @class_page.start_time.change(day: actual_day_num)})
-
+        #temp_date_update = @class_page.start_time
         increment_amount = actual_day_num + 7
-        (1..4).each do
-          #so now it's a matter of incrementing by the correct amount for each pass
-          #and this can be expanded out for the full year
-          @new_class_instance = ClassPage.new(class_page_params)
 
-          #aww, ok, so just setting the increment amount to 7 will cause it to do the same thing every time..
-          #it can still be incremented by
-          #ooooh ok, this exposes another big issue... the day, it can only be like 1 - 31... so when you exceed that it all fucks up
-          #so it needs to kinda update the whole date object perhaps is the solution
-          #teh increment amount neesd to be a new start_date entirely!
-          #new_start_time = @new_class_instance.start_time + increment_amount
-          @new_class_instance.update({start_time: @class_page.start_time.change(day: increment_amount)})
-          increment_amount += 7
+        (1..4).each do |i|
 
+          #like up here make a break condition for if increment_amount > DAYS_IN_CURRENT_MONTH
+
+          if increment_amount < 31
+
+            @new_class_instance = ClassPage.new(class_page_params)
+
+            new_start_time = Date.new(
+              @class_page.start_time.strftime('%Y').to_i,
+              @class_page.start_time.strftime('%m').to_i,
+              @class_page.start_time.strftime('%d').to_i + increment_amount
+              )
+            #new_start_time = @class_page.start_time + first_start_time
+            @new_class_instance.update({start_time: new_start_time})
+            increment_amount += 7
+
+          end
         end
-
-        break
-      end
-    end
-
+      
+    #-----#
 
 
 
