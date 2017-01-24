@@ -43,17 +43,56 @@ class ClassPagesController < ApplicationController
     day_num = start_date.day
     day_of_week = start_date.strftime('%A')
     last_day_of_month = start_date.end_of_month.day
-
+    new_day_num = nil
   #determine the actual date of the first instance of that day and update it
     (0..6).each do |i|
       if day_of_week == Date::DAYNAMES[i]
-        actual_day_num = i + 1
-        @class_page.update({start_time: @class_page.start_time.change(day: actual_day_num)})
+        new_day_num = i + 1
+        @class_page.update({start_time: @class_page.start_time.change(day: new_day_num)})
         break
       end
     end
 
-    redirect_to schedule_path
+    new_day_num += increment_amount
+
+    @next_class_instance = ClassPage.new(class_page_params)
+    @next_class_instance.update({start_time: @class_page.start_time.change(month: month_num, day: new_day_num)})
+
+    new_day_num += increment_amount
+
+    @next_class_instance = ClassPage.new(class_page_params)
+    @next_class_instance.update({start_time: @class_page.start_time.change(month: month_num, day: new_day_num)})
+
+    new_day_num += increment_amount
+
+    @next_class_instance = ClassPage.new(class_page_params)
+    @next_class_instance.update({start_time: @class_page.start_time.change(month: month_num, day: new_day_num)})
+
+    #so for this event, if I can get it to work for the next month then i will basically have it i think
+    new_day_num += increment_amount
+
+    #so this represents the edge case
+    if new_day_num > last_day_of_month
+      #determine the new month and day
+      diff = last_day_of_month - @next_class_instance.start_time.day
+      first_instance_next_month = increment_amount - diff
+      month_num += 1
+
+      @next_class_instance = ClassPage.new(class_page_params)
+      @next_class_instance.update({start_time: @class_page.start_time.change(month: month_num, day: first_instance_next_month)})
+
+      #now you need to get the day nums incrementing correctly again
+      new_day_num = first_instance_next_month + increment_amount
+      #redirect_to schedule_path
+
+    end
+
+    @next_class_instance = ClassPage.new(class_page_params)
+    @next_class_instance.update({start_time: @class_page.start_time.change(month: month_num, day: new_day_num)})
+
+
+
+
 
 
 
