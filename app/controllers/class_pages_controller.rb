@@ -33,46 +33,94 @@ class ClassPagesController < ApplicationController
 
   def create
 
+  #create all initial values
+    @class_page = ClassPage.new(class_page_params)
+    start_date = @class_page.start_time
+    increment_amount = 7
+
+    year = start_date.year
+    month_num = start_date.month
+    day_num = start_date.day
+    day_of_week = start_date.strftime('%A')
+    last_day_of_month = start_date.end_of_month.day
+
+  #determine the actual date of the first instance of that day and update it
+    (0..6).each do |i|
+      if day_of_week == Date::DAYNAMES[i]
+        actual_day_num = i + 1
+        @class_page.update({start_time: @class_page.start_time.change(day: actual_day_num)})
+        break
+      end
+    end
+
+    redirect_to schedule_path
+
+
+
+
+    #check if proposed date is valid
+
+
+    #if valid, post and increment
+
+    #if not, make valid, resume loop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     #building the recurring class feature
     #-----#
-    @class_page = ClassPage.new(class_page_params)
+    #@class_page = ClassPage.new(class_page_params)
 
-    day_of_week = @class_page.start_time.strftime('%A')
-    first_day_of_year = Time.current.beginning_of_year
+    #day_of_week = @class_page.start_time.strftime('%A')
+
+    #first_day_of_year = Time.current.beginning_of_year
+
+    # @class_page = ClassPage.new(class_page_params)
+    # #get its day
+    # recurring_day = @class_page.start_time.strftime('%A')
+    # @class_page.update({start_time: @class_page.start_time.change(day: actual_day_num)})
+
 
     #loop -1 thru 5 to check the days here
     #basically loop through the first instance of each weekday to find a match
     #this function takes a class and posts the first instance of the year
 
     #perhaps this should be an until loop
-    (first_day_of_year.day - 1..first_day_of_year.day + 5).each do |i|
-      #given the set weekday of the event, post to the first instance that event will occur in the given year
-      if day_of_week == Date::DAYNAMES[i]
-        actual_day_num = i + 1
-        @class_page.update({start_time: @class_page.start_time.change(day: actual_day_num)})
-        #temp_date_update = @class_page.start_time
-        increment_amount = actual_day_num + 7
-
-        (1..4).each do |i|
-
-          #like up here make a break condition for if increment_amount > DAYS_IN_CURRENT_MONTH
-
-          if increment_amount < 31
-
-            @new_class_instance = ClassPage.new(class_page_params)
-
-            new_start_time = Date.new(
-              @class_page.start_time.strftime('%Y').to_i,
-              @class_page.start_time.strftime('%m').to_i,
-              @class_page.start_time.strftime('%d').to_i + increment_amount
-              )
-            #new_start_time = @class_page.start_time + first_start_time
-            @new_class_instance.update({start_time: new_start_time})
-            increment_amount += 7
-
-          end
-        end
-      
+    # (first_day_of_year.day - 1..first_day_of_year.day + 5).each do |i|
+    #   #given the set weekday of the event, post to the first instance that event will occur in the given year
+    #   if day_of_week == Date::DAYNAMES[i]
+    #     actual_day_num = i
+    #     @class_page.update({start_time: @class_page.start_time.change(day: actual_day_num)})
+    #     #temp_date_update = @class_page.start_time
+    #     increment_amount = actual_day_num + 7
+    #
+    #     #1..4 is only a test amount for the loop
+    #     (1..4).each do |i|
+    #       @new_class_instance = ClassPage.new(class_page_params)
+    #
+    #       new_start_time = Date.new(
+    #         @class_page.start_time.strftime('%Y').to_i,
+    #         @class_page.start_time.strftime('%m').to_i,
+    #         @class_page.start_time.strftime('%d').to_i + increment_amount)
+    #       #new_start_time = @class_page.start_time + first_start_time
+    #       @new_class_instance.update({start_time: new_start_time})
+    #       increment_amount += 7
+    #
+    #     end
+    #   end
+    # end
     #-----#
 
 
@@ -134,15 +182,15 @@ class ClassPagesController < ApplicationController
 
 
 
-    respond_to do |format|
-      if @class_page.save
-        format.html { redirect_to @class_page, notice: 'Class page was successfully created.' }
-        format.json { render :show, status: :created, location: @class_page }
-      else
-        format.html { render :new }
-        format.json { render json: @class_page.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @class_page.save
+    #     format.html { redirect_to @class_page, notice: 'Class page was successfully created.' }
+    #     format.json { render :show, status: :created, location: @class_page }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @class_page.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   def update
