@@ -53,42 +53,31 @@ class ClassPagesController < ApplicationController
       end
     end
 
-    new_day_num += increment_amount
+  #1..10 is a random set to test 10 posts and how it acts
+    (1..30).each do
+      new_day_num += increment_amount
+  #so this represents the edge case
+      if new_day_num <= last_day_of_month
+        @next_class_instance = ClassPage.new(class_page_params)
+        @next_class_instance.update({start_time: @next_class_instance.start_time.change(month: month_num, day: new_day_num)})
 
-    @next_class_instance = ClassPage.new(class_page_params)
-    @next_class_instance.update({start_time: @class_page.start_time.change(month: month_num, day: new_day_num)})
+      elsif new_day_num > last_day_of_month
+        #determine the new month and day
+        diff = last_day_of_month - (new_day_num - increment_amount)
+        first_instance_next_month = increment_amount - diff
+        month_num += 1
 
-    new_day_num += increment_amount
+        @next_class_instance = ClassPage.new(class_page_params)
+        @next_class_instance.update({start_time: @next_class_instance.start_time.change(month: month_num, day: first_instance_next_month)})
 
-    @next_class_instance = ClassPage.new(class_page_params)
-    @next_class_instance.update({start_time: @class_page.start_time.change(month: month_num, day: new_day_num)})
-
-    new_day_num += increment_amount
-
-    @next_class_instance = ClassPage.new(class_page_params)
-    @next_class_instance.update({start_time: @class_page.start_time.change(month: month_num, day: new_day_num)})
-
-    #so for this event, if I can get it to work for the next month then i will basically have it i think
-    new_day_num += increment_amount
-
-    #so this represents the edge case
-    if new_day_num > last_day_of_month
-      #determine the new month and day
-      diff = last_day_of_month - @next_class_instance.start_time.day
-      first_instance_next_month = increment_amount - diff
-      month_num += 1
-
-      @next_class_instance = ClassPage.new(class_page_params)
-      @next_class_instance.update({start_time: @class_page.start_time.change(month: month_num, day: first_instance_next_month)})
-
-      #now you need to get the day nums incrementing correctly again
-      new_day_num = first_instance_next_month + increment_amount
-      #redirect_to schedule_path
-
+        #now you need to get the day nums incrementing correctly again
+        new_day_num = first_instance_next_month
+        #and update the last day of the month
+        last_day_of_month = @next_class_instance.start_time.end_of_month.day
+      end
     end
 
-    @next_class_instance = ClassPage.new(class_page_params)
-    @next_class_instance.update({start_time: @class_page.start_time.change(month: month_num, day: new_day_num)})
+
 
 
 
@@ -103,120 +92,6 @@ class ClassPagesController < ApplicationController
     #if valid, post and increment
 
     #if not, make valid, resume loop
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #building the recurring class feature
-    #-----#
-    #@class_page = ClassPage.new(class_page_params)
-
-    #day_of_week = @class_page.start_time.strftime('%A')
-
-    #first_day_of_year = Time.current.beginning_of_year
-
-    # @class_page = ClassPage.new(class_page_params)
-    # #get its day
-    # recurring_day = @class_page.start_time.strftime('%A')
-    # @class_page.update({start_time: @class_page.start_time.change(day: actual_day_num)})
-
-
-    #loop -1 thru 5 to check the days here
-    #basically loop through the first instance of each weekday to find a match
-    #this function takes a class and posts the first instance of the year
-
-    #perhaps this should be an until loop
-    # (first_day_of_year.day - 1..first_day_of_year.day + 5).each do |i|
-    #   #given the set weekday of the event, post to the first instance that event will occur in the given year
-    #   if day_of_week == Date::DAYNAMES[i]
-    #     actual_day_num = i
-    #     @class_page.update({start_time: @class_page.start_time.change(day: actual_day_num)})
-    #     #temp_date_update = @class_page.start_time
-    #     increment_amount = actual_day_num + 7
-    #
-    #     #1..4 is only a test amount for the loop
-    #     (1..4).each do |i|
-    #       @new_class_instance = ClassPage.new(class_page_params)
-    #
-    #       new_start_time = Date.new(
-    #         @class_page.start_time.strftime('%Y').to_i,
-    #         @class_page.start_time.strftime('%m').to_i,
-    #         @class_page.start_time.strftime('%d').to_i + increment_amount)
-    #       #new_start_time = @class_page.start_time + first_start_time
-    #       @new_class_instance.update({start_time: new_start_time})
-    #       increment_amount += 7
-    #
-    #     end
-    #   end
-    # end
-    #-----#
-
-
-
-
-
-
-    # first_day_of_the_year.beginning_of_week
-    #
-    # @class_page = ClassPage.new(class_page_params)
-    # first_instance_day = @class_page.start_time.strftime('%A')
-    #
-    #
-    #
-    # @class_page.update_attribute(:start_time, start)
-    # @class_page.save
-    #
-    # next_day = @class_page.start_time.change(:day, )
-    #
-    # @class_page = ClassPage.new(class_page_params)
-    # @class_page.update_attribute(:start_time, start+7)
-    # @class_page.save
-
-
-    # @class_page.save
-
-    # if @class_page.recurring_event
-    #
-    #   #next_day = @class_page.start_time.day + 7
-    #   start = Time.current.beginning_of_year.day
-    #   finish = Time.current.end_of_week.day
-    #
-    #   next_day = @class_page.start_time.day
-    #
-    #   (start..finish).each do
-    #     @new_instance = ClassPage.new(class_page_params)
-    #     @new_instance.update_attribute(:start_time, Date.today + next_day)
-    #     next_day = next_day + 1
-    #     @new_instance.save
-
-
-
-        # @new_class_instance = ClassPage.new(class_page_params)
-        # temp_date = @new_class_instance.start_time.change(day: next_day)
-        # @new_class_instance.update_attribute(:start_time, temp_date)
-        # @new_class_instance.save
-
-
-
-
-        # @new_class_instance = ClassPage.new(class_page_params)
-        # temp_date = @new_class_instance.start_time.change(day: next_day)
-        # @new_class_instance.update_attribute(:start_time, temp_date)
-        # @new_class_instance.save
-
-        #next_day = @new_class_instance.start_time.day + 7
-
 
 
 
