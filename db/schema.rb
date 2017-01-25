@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109215750) do
+ActiveRecord::Schema.define(version: 20170125230107) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "content"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 20170109215750) do
     t.datetime "class_photo_updated_at"
     t.datetime "start_time"
     t.boolean  "recurring_event"
+    t.datetime "start_time_1"
+    t.datetime "start_time_2"
+    t.datetime "start_time_3"
+    t.datetime "start_time_4"
+    t.datetime "start_time_5"
+    t.datetime "start_time_6"
+    t.datetime "start_time_7"
+    t.datetime "start_time_8"
+    t.datetime "start_time_9"
+    t.datetime "start_time_10"
+    t.datetime "start_time_11"
+    t.datetime "start_time_12"
     t.index ["slug"], name: "index_class_pages_on_slug"
   end
 

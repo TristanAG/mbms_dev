@@ -30,14 +30,74 @@
   </div>
 
   <div class="field">
+    <%= f.label :order_position %>
+    <%= f.number_field :order_position %>
+  </div>
+
+  <div class="field">
     <%= f.label :start_time %>
     <%= f.datetime_select :start_time, ampm: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :order_position %>
-    <%= f.number_field :order_position %>
-  </div>
+<!-- additional start times -->
+    <div class="field">
+      <%= f.label :start_time_1 %>
+      <%= f.datetime_select :start_time_1, ampm: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_time_2 %>
+      <%= f.datetime_select :start_time_2, ampm: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_time_3 %>
+      <%= f.datetime_select :start_time_4, ampm: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_time_5 %>
+      <%= f.datetime_select :start_time_5, ampm: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_time_6 %>
+      <%= f.datetime_select :start_time_6, ampm: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_time_7 %>
+      <%= f.datetime_select :start_time_7, ampm: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_time_8 %>
+      <%= f.datetime_select :start_time_8, ampm: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_time_9 %>
+      <%= f.datetime_select :start_time_9, ampm: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_time_10 %>
+      <%= f.datetime_select :start_time_10, ampm: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_time_11 %>
+      <%= f.datetime_select :start_time_11, ampm: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_time_12 %>
+      <%= f.datetime_select :start_time_12, ampm: true %>
+    </div>
+
+
+
+
 
   <div class="actions">
     <%= f.submit %>

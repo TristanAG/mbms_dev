@@ -34,16 +34,23 @@ class ClassPagesController < ApplicationController
 
   def create
     @class_page = ClassPage.new(class_page_params)
-
     if @class_page.recurring_event
-      #create a recurring event
       save_recurring_classes
     else
-      #create a normal event (with multi-instance support coming)
-      @class_page.save
-      redirect_to @class_page
+      save_multi_event_class
     end
+  end
 
+  def save_multi_event_class
+    @class_page = ClassPage.new(class_page_params)
+    name = @class_page.class_title
+    start_time_1 = @class_page.start_time_1
+    slug = 'porkchop'
+    @class_page.save
+
+    @multi_instance_class = ClassPage.new({class_title: name, start_time: start_time_1, slug: slug})
+    @multi_instance_class.save
+    redirect_to schedule_path
   end
 
   def save_recurring_classes
@@ -127,7 +134,24 @@ class ClassPagesController < ApplicationController
   end
 
   def class_page_params
-    params.require(:class_page).permit(:start_time, :class_title, :recurring_event, :class_photo, :class_content, :order_position)
+    params.require(:class_page).permit( :start_time,
+                                        :start_time_1,
+                                        :start_time_2,
+                                        :start_time_3,
+                                        :start_time_4,
+                                        :start_time_5,
+                                        :start_time_6,
+                                        :start_time_7,
+                                        :start_time_8,
+                                        :start_time_9,
+                                        :start_time_10,
+                                        :start_time_11,
+                                        :start_time_12,
+                                        :class_title,
+                                        :recurring_event,
+                                        :class_photo,
+                                        :class_content,
+                                        :order_position)
   end
 
 end
