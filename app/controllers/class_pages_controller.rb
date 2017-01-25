@@ -32,10 +32,7 @@ class ClassPagesController < ApplicationController
     @class_page = ClassPage.new
   end
 
-
-
   def create
-
     @class_page = ClassPage.new(class_page_params)
 
     if @class_page.recurring_event
