@@ -13,9 +13,13 @@ class ApplicationController < ActionController::Base
     @students = Student.all
   end
 
+
+
+
   def load_widgets
     this_week_widget
     announcement_widget
+
   end
 
 end

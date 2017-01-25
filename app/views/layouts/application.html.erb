@@ -4,7 +4,6 @@
     <title><%= yield(:title) %> | Monterey Bay Meditation Studio</title>
     <%= csrf_meta_tags %>
     <%= render 'layouts/basic_page_needs' %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -20,44 +19,33 @@
       <% end %>
     </div>
 
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-    <% if current_page?(admin_path) || controller_name == 'students' || current_page?(new_user_session_path)%>
+    <!-- notifications -->
+    <% if notice %><p class="alert alert-success"><%= notice %></p><% end %>
+    <% if alert %><p class="alert alert-danger"><%= alert %></p><% end %>
 
+    <!--hide normal sidebar if on admin, students, or new_user_session path -->
+    <% if   current_page?(admin_path) ||
+            controller_name == 'students' ||
+            current_page?(new_user_session_path)  %>
       <div class="container">
-
         <%= yield %>
       </div>
-        <%= render 'layouts/footer' %>
-      </div>
+      <%= render 'layouts/footer' %>
     <% else %>
-
+    
+    <!-- render the normal layout -->
       <%= render 'layouts/header' %>
 
       <div class="container">
-
-
         <%= yield %>
-
-
-
         <div class="three columns">
           <% if controller_name != 'registrations' %>
-      		<%= render 'layouts/sidebar' %>
+      		  <%= render 'layouts/sidebar' %>
           <% end %>
       	</div>
-
-
-
-
-
       </div>
 
-  		  <%= render 'layouts/footer' %>
+  		<%= render 'layouts/footer' %>
     <% end %>
   </body>
 </html>

@@ -1,14 +1,14 @@
 class ClassPagesController < ApplicationController
   before_action :set_class_page, only: [:show, :edit, :update, :destroy]
   before_action :load_widgets
-  before_action :load_class_pages, only: [:index, :admin, :schedule, :show]
+  before_action :load_class_pages, only: [:schedule, :admin]
+  before_action :load_sidebar_classes, only: [:index, :show]
   before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
   end
 
   def admin
-
     load_students
 
     if !user_signed_in?
@@ -22,6 +22,7 @@ class ClassPagesController < ApplicationController
   end
 
   def schedule
+
   end
 
   def edit
@@ -31,9 +32,24 @@ class ClassPagesController < ApplicationController
     @class_page = ClassPage.new
   end
 
+
+
   def create
 
-  #create all initial values
+    @class_page = ClassPage.new(class_page_params)
+
+    if @class_page.recurring_event
+      #create a recurring event
+      save_recurring_classes
+    else
+      #create a normal event (with multi-instance support coming)
+      @class_page.save
+      redirect_to @class_page
+    end
+
+  end
+
+  def save_recurring_classes
     @class_page = ClassPage.new(class_page_params)
     start_date = @class_page.start_time
     increment_amount = 7
@@ -44,7 +60,8 @@ class ClassPagesController < ApplicationController
     day_of_week = start_date.strftime('%A')
     last_day_of_month = start_date.end_of_month.day
     new_day_num = nil
-  #determine the actual date of the first instance of that day and update it
+
+    #determine the actual start date of the first instance and save
     (0..6).each do |i|
       if day_of_week == Date::DAYNAMES[i]
         new_day_num = i + 1
@@ -53,58 +70,29 @@ class ClassPagesController < ApplicationController
       end
     end
 
-  #1..10 is a random set to test 10 posts and how it acts
-    (1..30).each do
+    #loop through every unique instance of that day in the year
+    (1..51).each do
       new_day_num += increment_amount
-  #so this represents the edge case
+
       if new_day_num <= last_day_of_month
         @next_class_instance = ClassPage.new(class_page_params)
         @next_class_instance.update({start_time: @next_class_instance.start_time.change(month: month_num, day: new_day_num)})
 
       elsif new_day_num > last_day_of_month
         #determine the new month and day
-        diff = last_day_of_month - (new_day_num - increment_amount)
-        first_instance_next_month = increment_amount - diff
+        next_month_day_offset = last_day_of_month - (new_day_num - increment_amount)
+        first_instance_next_month = increment_amount - next_month_day_offset
         month_num += 1
 
         @next_class_instance = ClassPage.new(class_page_params)
         @next_class_instance.update({start_time: @next_class_instance.start_time.change(month: month_num, day: first_instance_next_month)})
 
-        #now you need to get the day nums incrementing correctly again
+        #reset variables for next pass
         new_day_num = first_instance_next_month
-        #and update the last day of the month
         last_day_of_month = @next_class_instance.start_time.end_of_month.day
       end
     end
-
-
-
-
-
-
-
-
-
-
-    #check if proposed date is valid
-
-
-    #if valid, post and increment
-
-    #if not, make valid, resume loop
-
-
-
-
-    # respond_to do |format|
-    #   if @class_page.save
-    #     format.html { redirect_to @class_page, notice: 'Class page was successfully created.' }
-    #     format.json { render :show, status: :created, location: @class_page }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @class_page.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    redirect_to schedule_path
   end
 
   def update
@@ -135,6 +123,10 @@ class ClassPagesController < ApplicationController
 
   def load_class_pages
     @class_pages = ClassPage.order("order_position ASC").all
+  end
+
+  def load_sidebar_classes
+    @sidebar_class_pages = ClassPage.where(recurring_event: false).order("order_position ASC")
   end
 
   def class_page_params
