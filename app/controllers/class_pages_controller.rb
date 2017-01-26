@@ -45,7 +45,12 @@ class ClassPagesController < ApplicationController
     @class_page = ClassPage.new(class_page_params)
     slug_ref = @class_page.class_title.gsub(/[^a-zA-Z0-9 -]/i, '').split(' ').join('-').downcase()
     name = @class_page.class_title
-    @class_page.update({class_title: name, class_content: @class_page.class_content, class_photo: @class_page.class_photo, start_time: @class_page.start_time, slug_ref: slug_ref})
+    @class_page.update({  class_title: name,
+                          class_content: @class_page.class_content,
+                          class_photo: @class_page.class_photo,
+                          start_time: @class_page.start_time,
+                          slug_ref: slug_ref,
+                          first_instance: true})
 
     start_time_next = @class_page.start_time_1
 
@@ -156,6 +161,7 @@ class ClassPagesController < ApplicationController
                                         :class_photo,
                                         :class_content,
                                         :slug_ref,
+                                        :first_instance,
                                         :order_position)
   end
 
