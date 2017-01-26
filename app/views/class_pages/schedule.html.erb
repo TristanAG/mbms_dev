@@ -33,13 +33,21 @@
 
       <div id="mobile-schedule-view">
 
-        <h1><%= @class_pages.first.start_time.strftime("%B") %></h1>
+        <h1><%= Time.now.strftime('%B') %></h1>
         <br>
-        <% @class_pages.each do |class_page| %>
-          <%= class_page.start_time.strftime("%A %y") %> |
-          <%= link_to class_page.class_title, class_page %> |
-          <%= class_page.start_time.strftime("%l:%M %p") %>
-          <br>
+        <% @mobile_classes.each do |class_page| %>
+          <% if class_page.slug_ref != "drop-in-classes"%>
+            <% if class_page.recurring_event %>
+              <%= class_page.start_time.strftime('%A, %d | %l:%M %p') %> <br> <a href="/classes/drop-in-classes"><%= class_page.class_title %></a>
+              <br>
+              <br>
+            <% else %>
+              <%= class_page.start_time.strftime('%A, %d | %l:%M %p') %> <br> <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a>
+              <br>
+              <br>
+            <% end %>
+
+        <% end %>
         <% end %>
       </div>
 

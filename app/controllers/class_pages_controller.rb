@@ -22,7 +22,7 @@ class ClassPagesController < ApplicationController
   end
 
   def schedule
-
+    @mobile_classes = ClassPage.where(start_time: Time.current.beginning_of_month..Time.current.end_of_month).order("start_time ASC").all
   end
 
   def edit
