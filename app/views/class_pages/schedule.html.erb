@@ -16,14 +16,17 @@
         <%= month_calendar events: @class_pages do |date, class_pages| %>
           <span class="day-num"><b><%= date.day %></b></span>
           <br>
-          <% class_pages.each do |class_page| %>
-            <% if class_page.recurring_event %>
-              <a href="/classes/drop-in-classes"><%= class_page.class_title %></a>
-            <% else %>
-              <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a>
-              <!-- <%= link_to class_page.class_title, class_page %><br> -->
+
+            <% class_pages.each do |class_page| %>
+              <% if class_page.slug_ref != "drop-in-classes"%>
+                <% if class_page.recurring_event %>
+                  <a href="/classes/drop-in-classes"><%= class_page.class_title %></a>
+                <% else %>
+                  <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a>
+                <!-- <%= link_to class_page.class_title, class_page %><br> -->
+                <% end %>
+                <%= class_page.start_time.strftime("%l:%M %p") %><br>
             <% end %>
-            <%= class_page.start_time.strftime("%l:%M %p") %><br>
           <% end %>
         <% end %>
       </div>
