@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem "paperclip", '~> 5.0.0'
-gem 'friendly_id', '~> 5.1'
+gem "friendly_id"
 gem 'simple_calendar', '~> 2.0'
 gem 'devise'
 
