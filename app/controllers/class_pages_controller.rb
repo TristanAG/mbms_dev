@@ -43,14 +43,17 @@ class ClassPagesController < ApplicationController
 
   def save_multi_event_class
     @class_page = ClassPage.new(class_page_params)
-    slug = @class_page.class_title.gsub(/[^a-zA-Z0-9 -]/i, '').split(' ').join('_').downcase()
+    slug_ref = @class_page.class_title.gsub(/[^a-zA-Z0-9 -]/i, '').split(' ').join('-').downcase()
     name = @class_page.class_title
-    start_time_1 = @class_page.start_time_1
+    @class_page.update({class_title: name, class_content: @class_page.class_content, class_photo: @class_page.class_photo, start_time: @class_page.start_time, slug_ref: slug_ref})
+
+    start_time_next = @class_page.start_time_1
 
     @class_page.save
 
-    @multi_instance_class = ClassPage.new({class_title: name, start_time: start_time_1, slug: slug})
+    @multi_instance_class = ClassPage.new({class_title: name, start_time: start_time_next, slug_ref: slug_ref})
     @multi_instance_class.save
+
     redirect_to schedule_path
   end
 
@@ -152,6 +155,7 @@ class ClassPagesController < ApplicationController
                                         :recurring_event,
                                         :class_photo,
                                         :class_content,
+                                        :slug_ref,
                                         :order_position)
   end
 
