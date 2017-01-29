@@ -1,3 +1,47 @@
+<script type="text/javascript">
+  $( document ).ready( function(num){
+    init()
+    $( '#add-button' ).click( function( e ){
+      e.preventDefault()
+      num++
+      updateNum()
+      addEvent()
+      toggleButtons()
+    })
+    $( '#subtract-button' ).click( function( e ){
+      e.preventDefault()
+      removeEvent()
+      num--
+      updateNum()
+      toggleButtons()
+    })
+    function init(){
+      num = 1
+      $( '#meeting_meeting_instances' ).val(num)
+      $( '#2, #3' ).hide()
+      $( '#subtract-button' ).hide()
+    }
+    function toggleButtons(){
+      switch(num) {
+        case 1:
+          $( '#add-button' ).show()
+          $( '#subtract-button' ).hide()
+            break;
+        case 3:
+          $( '#add-button' ).hide()
+          $( '#subtract-button' ).show()
+            break;
+        default:
+          $( '#add-button' ).show()
+          $( '#subtract-button' ).show()
+      }
+    }
+    function addEvent(){ $( '#' + num.toString() ).show() }
+    function removeEvent(){ $( '#' + num.toString() ).hide() }
+    function updateNum(){ $( '#class_class_instances' ).val(num) }
+  })
+</script>
+
 <%= form_for(class_page) do |f| %>
   <% if class_page.errors.any? %>
     <div id="error_explanation">
@@ -34,68 +78,36 @@
     <%= f.number_field :order_position %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :start_time %>
     <%= f.datetime_select :start_time, ampm: true %>
-  </div>
+  </div> -->
+
+
 
 <!-- additional start times -->
-    <div class="field">
+    <div class="field" id="1">
       <%= f.label :start_time_1 %>
       <%= f.datetime_select :start_time_1, ampm: true %>
     </div>
 
-    <div class="field">
+    <div class="field" id="2">
       <%= f.label :start_time_2 %>
       <%= f.datetime_select :start_time_2, ampm: true %>
     </div>
 
-    <div class="field">
+    <div class="field" id="3">
       <%= f.label :start_time_3 %>
-      <%= f.datetime_select :start_time_4, ampm: true %>
+      <%= f.datetime_select :start_time_3, ampm: true %>
     </div>
 
-    <div class="field">
-      <%= f.label :start_time_5 %>
-      <%= f.datetime_select :start_time_5, ampm: true %>
+    <button id="add-button"><h4>+</h4></button>
+    <button id="subtract-button"><h4>-</h4></button>
+
+    <div class="hidden-element" >
+      <%= f.label :class_instances %>
+      <%= f.text_field :class_instances %>
     </div>
-
-    <div class="field">
-      <%= f.label :start_time_6 %>
-      <%= f.datetime_select :start_time_6, ampm: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :start_time_7 %>
-      <%= f.datetime_select :start_time_7, ampm: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :start_time_8 %>
-      <%= f.datetime_select :start_time_8, ampm: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :start_time_9 %>
-      <%= f.datetime_select :start_time_9, ampm: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :start_time_10 %>
-      <%= f.datetime_select :start_time_10, ampm: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :start_time_11 %>
-      <%= f.datetime_select :start_time_11, ampm: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :start_time_12 %>
-      <%= f.datetime_select :start_time_12, ampm: true %>
-    </div>
-
-
 
 
 

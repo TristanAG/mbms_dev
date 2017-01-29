@@ -48,16 +48,26 @@ class ClassPagesController < ApplicationController
     @class_page.update({  class_title: name,
                           class_content: @class_page.class_content,
                           class_photo: @class_page.class_photo,
-                          start_time: @class_page.start_time,
+                          start_time: @class_page.start_time_1,
                           slug_ref: slug_ref,
+                          class_instances: @class_page.class_instances,
                           first_instance: true})
-
-    start_time_next = @class_page.start_time_1
 
     @class_page.save
 
+    start_time_next = @class_page.start_time_2
+
+
     @multi_instance_class = ClassPage.new({class_title: name, start_time: start_time_next, slug_ref: slug_ref})
     @multi_instance_class.save
+
+    start_time_next = @class_page.start_time_3
+
+
+    @multi_instance_class = ClassPage.new({class_title: name, start_time: start_time_next, slug_ref: slug_ref})
+    @multi_instance_class.save
+
+
 
     redirect_to schedule_path
   end
@@ -162,6 +172,7 @@ class ClassPagesController < ApplicationController
                                         :class_content,
                                         :slug_ref,
                                         :first_instance,
+                                        :class_instances,
                                         :order_position)
   end
 

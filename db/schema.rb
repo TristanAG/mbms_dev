@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126202316) do
+ActiveRecord::Schema.define(version: 20170129181710) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "content"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170126202316) do
     t.datetime "start_time_12"
     t.string   "slug_ref"
     t.boolean  "first_instance"
+    t.integer  "class_instances"
     t.index ["slug"], name: "index_class_pages_on_slug"
   end
 
