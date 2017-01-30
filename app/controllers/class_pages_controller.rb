@@ -43,8 +43,10 @@ class ClassPagesController < ApplicationController
 
   def save_multi_event_class
     @class_page = ClassPage.new(class_page_params)
+
     slug_ref = @class_page.class_title.gsub(/[^a-zA-Z0-9 -]/i, '').split(' ').join('-').downcase()
     name = @class_page.class_title
+
     @class_page.update({  class_title: name,
                           class_content: @class_page.class_content,
                           class_photo: @class_page.class_photo,
@@ -52,22 +54,21 @@ class ClassPagesController < ApplicationController
                           slug_ref: slug_ref,
                           class_instances: @class_page.class_instances,
                           first_instance: true})
-
     @class_page.save
 
-    start_time_next = @class_page.start_time_2
 
 
-    @multi_instance_class = ClassPage.new({class_title: name, start_time: start_time_next, slug_ref: slug_ref})
-    @multi_instance_class.save
+    class_time = [
+      @class_page.start_time_1,
+      @class_page.start_time_2,
+      @class_page.start_time_3,
+    ]
 
-    start_time_next = @class_page.start_time_3
+    @class_page.class_instances.times do |i|
 
-
-    @multi_instance_class = ClassPage.new({class_title: name, start_time: start_time_next, slug_ref: slug_ref})
-    @multi_instance_class.save
-
-
+      @multi_instance_class = ClassPage.new({class_title: name, start_time: class_time[i], slug_ref: slug_ref})
+      @multi_instance_class.save
+    end
 
     redirect_to schedule_path
   end

@@ -38,7 +38,7 @@
     }
     function addEvent(){ $( '#' + num.toString() ).show() }
     function removeEvent(){ $( '#' + num.toString() ).hide() }
-    function updateNum(){ $( '#class_class_instances' ).val(num) }
+    function updateNum(){ $( '#class_page_class_instances' ).val(num) }
   })
 </script>
 
@@ -85,11 +85,21 @@
 
 
 
-<!-- additional start times -->
+
+
+  <% if !current_page?(controller: 'class_pages', action: 'new') %>
     <div class="field" id="1">
-      <%= f.label :start_time_1 %>
+      <%= f.label "reg start time" %>
+      <%= f.datetime_select :start_time, ampm: true %>
+    </div>
+  <% else %>
+    <div class="field" id="1">
+      <%= f.label "recurring start time" %>
       <%= f.datetime_select :start_time_1, ampm: true %>
     </div>
+  <% end %>
+
+  <!-- additional start times -->
 
     <div class="field" id="2">
       <%= f.label :start_time_2 %>
