@@ -1,7 +1,7 @@
 class ClassPagesController < ApplicationController
   before_action :set_class_page, only: [:show, :edit, :update, :destroy]
   before_action :load_widgets
-  before_action :load_class_pages, only: [:schedule, :admin]
+  before_action :load_class_pages, only: [:schedule]
   before_action :load_sidebar_classes, only: [:index, :show]
   before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
@@ -10,7 +10,7 @@ class ClassPagesController < ApplicationController
 
   def admin
     load_students
-
+    load_admin_classes
     if !user_signed_in?
       redirect_to root_path
     end
@@ -22,6 +22,7 @@ class ClassPagesController < ApplicationController
   end
 
   def schedule
+
     @mobile_classes = ClassPage.where(start_time: Time.current.beginning_of_month..Time.current.end_of_month).order("start_time ASC").all
   end
 
@@ -47,27 +48,36 @@ class ClassPagesController < ApplicationController
     slug_ref = @class_page.class_title.gsub(/[^a-zA-Z0-9 -]/i, '').split(' ').join('-').downcase()
     name = @class_page.class_title
 
-    @class_page.update({  class_title: name,
-                          class_content: @class_page.class_content,
-                          class_photo: @class_page.class_photo,
-                          start_time: @class_page.start_time_1,
-                          slug_ref: slug_ref,
-                          class_instances: @class_page.class_instances,
-                          first_instance: true})
-    @class_page.save
-
-
-
     class_time = [
       @class_page.start_time_1,
       @class_page.start_time_2,
       @class_page.start_time_3,
+      @class_page.start_time_4,
+      @class_page.start_time_5,
+      @class_page.start_time_6,
+      @class_page.start_time_7,
+      @class_page.start_time_8,
+      @class_page.start_time_9,
+      @class_page.start_time_10,
+      @class_page.start_time_11,
+      @class_page.start_time_12,
     ]
 
     @class_page.class_instances.times do |i|
+      if i == 0
+        @class_page.update({  class_title: name,
+                              class_content: @class_page.class_content,
+                              class_photo: @class_page.class_photo,
+                              start_time: @class_page.start_time_1,
+                              slug_ref: slug_ref,
+                              class_instances: @class_page.class_instances,
+                              first_instance: true})
+        @class_page.save
+        elsif i > 0
 
-      @multi_instance_class = ClassPage.new({class_title: name, start_time: class_time[i], slug_ref: slug_ref})
-      @multi_instance_class.save
+        @multi_instance_class = ClassPage.new({class_title: name, start_time: class_time[i], slug_ref: slug_ref})
+        @multi_instance_class.save
+      end
     end
 
     redirect_to schedule_path
@@ -151,6 +161,10 @@ class ClassPagesController < ApplicationController
 
   def load_sidebar_classes
     @sidebar_class_pages = ClassPage.where(recurring_event: false).order("order_position ASC")
+  end
+
+  def load_admin_classes
+    @admin_class_pages = ClassPage.order("order_position ASC").all.where(:first_instance => true)
   end
 
   def class_page_params

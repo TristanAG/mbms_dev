@@ -18,7 +18,7 @@
     function init(){
       num = 1
       $( '#meeting_meeting_instances' ).val(num)
-      $( '#2, #3' ).hide()
+      $( '#2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #12' ).hide()
       $( '#subtract-button' ).hide()
     }
     function toggleButtons(){
@@ -27,7 +27,7 @@
           $( '#add-button' ).show()
           $( '#subtract-button' ).hide()
             break;
-        case 3:
+        case 12:
           $( '#add-button' ).hide()
           $( '#subtract-button' ).show()
             break;
@@ -109,6 +109,51 @@
     <div class="field" id="3">
       <%= f.label :start_time_3 %>
       <%= f.datetime_select :start_time_3, ampm: true %>
+    </div>
+
+    <div class="field" id="4">
+      <%= f.label :start_time_4 %>
+      <%= f.datetime_select :start_time_4, ampm: true %>
+    </div>
+
+    <div class="field" id="5">
+      <%= f.label :start_time_5 %>
+      <%= f.datetime_select :start_time_5, ampm: true %>
+    </div>
+
+    <div class="field" id="6">
+      <%= f.label :start_time_6 %>
+      <%= f.datetime_select :start_time_6, ampm: true %>
+    </div>
+
+    <div class="field" id="7">
+      <%= f.label :start_time_7 %>
+      <%= f.datetime_select :start_time_7, ampm: true %>
+    </div>
+
+    <div class="field" id="8">
+      <%= f.label :start_time_8 %>
+      <%= f.datetime_select :start_time_8, ampm: true %>
+    </div>
+
+    <div class="field" id="9">
+      <%= f.label :start_time_9 %>
+      <%= f.datetime_select :start_time_9, ampm: true %>
+    </div>
+
+    <div class="field" id="10">
+      <%= f.label :start_time_10 %>
+      <%= f.datetime_select :start_time_10, ampm: true %>
+    </div>
+
+    <div class="field" id="11">
+      <%= f.label :start_time_11 %>
+      <%= f.datetime_select :start_time_11, ampm: true %>
+    </div>
+
+    <div class="field" id="12">
+      <%= f.label :start_time_12 %>
+      <%= f.datetime_select :start_time_12, ampm: true %>
     </div>
 
     <button id="add-button"><h4>+</h4></button>

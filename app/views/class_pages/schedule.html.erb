@@ -23,7 +23,6 @@
                   <a href="/classes/drop-in-classes"><%= class_page.class_title %></a>
                 <% else %>
                   <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a>
-                <!-- <%= link_to class_page.class_title, class_page %><br> -->
                 <% end %>
                 <%= class_page.start_time.strftime("%l:%M %p") %><br>
             <% end %>
