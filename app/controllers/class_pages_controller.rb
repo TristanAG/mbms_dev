@@ -71,11 +71,12 @@ class ClassPagesController < ApplicationController
                               start_time: @class_page.start_time_1,
                               slug_ref: slug_ref,
                               class_instances: @class_page.class_instances,
-                              first_instance: true})
+                              first_instance: true,
+                              include_sign_up: @class_page.include_sign_up})
         @class_page.save
         elsif i > 0
 
-        @multi_instance_class = ClassPage.new({class_title: name, start_time: class_time[i], slug_ref: slug_ref})
+        @multi_instance_class = ClassPage.new({class_title: name, start_time: class_time[i], slug_ref: slug_ref, include_sign_up: @class_page.include_sign_up})
         @multi_instance_class.save
       end
     end
@@ -183,6 +184,7 @@ class ClassPagesController < ApplicationController
                                         :start_time_12,
                                         :class_title,
                                         :recurring_event,
+                                        :include_sign_up,
                                         :class_photo,
                                         :class_content,
                                         :slug_ref,

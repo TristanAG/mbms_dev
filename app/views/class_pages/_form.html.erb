@@ -17,7 +17,7 @@
     })
     function init(){
       num = 1
-      $( '#meeting_meeting_instances' ).val(num)
+      $( '#class_page_class_instances' ).val(num)
       $( '#2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #12' ).hide()
       $( '#subtract-button' ).hide()
     }
@@ -26,11 +26,11 @@
         case 1:
           $( '#add-button' ).show()
           $( '#subtract-button' ).hide()
-            break;
+            break
         case 12:
           $( '#add-button' ).hide()
           $( '#subtract-button' ).show()
-            break;
+            break
         default:
           $( '#add-button' ).show()
           $( '#subtract-button' ).show()
@@ -69,6 +69,10 @@
   </div>
 
   <div class="field">
+    Include sign up button? &nbsp;<%= f.check_box :include_sign_up %>
+  </div>
+
+  <div class="field">
     <%= f.label :class_content %>
     <%= f.text_area :class_content, style: "width: 600px; height: 500px; max-width: 100%" %>
   </div>
@@ -77,15 +81,6 @@
     <%= f.label :order_position %>
     <%= f.number_field :order_position %>
   </div>
-
-  <!-- <div class="field">
-    <%= f.label :start_time %>
-    <%= f.datetime_select :start_time, ampm: true %>
-  </div> -->
-
-
-
-
 
   <% if !current_page?(controller: 'class_pages', action: 'new') %>
     <div class="field" id="1">

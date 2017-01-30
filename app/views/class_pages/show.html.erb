@@ -10,7 +10,7 @@
         <h1> <%= @class_page.class_title %></h1>
 
         <% unless @class_page.class_photo.blank? %>
-        <%= image_tag @class_page.class_photo.url %>
+          <%= image_tag @class_page.class_photo.url %>
         <% end %>
 
         <p>
@@ -21,9 +21,9 @@
 
 
 
-
-        <%= button_to "Sign Up", new_student_path, method: :get %>
-
+        <% if @class_page.include_sign_up %>
+          <%= button_to "Sign Up", new_student_path, method: :get %>
+        <% end %>
 
 
 
