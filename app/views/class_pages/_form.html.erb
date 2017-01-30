@@ -56,24 +56,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.file_field :class_photo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :class_title %>
+  <h2><b>Class Title</b></h2>
     <%= f.text_field :class_title %>
   </div>
 
   <div class="field">
-    Recurring Event? &nbsp;<%= f.check_box :recurring_event %>
+    <h2><b>Include an image for the class?</b></h2>
+    <%= f.file_field :class_photo %>
   </div>
 
   <div class="field">
-    Include sign up button? &nbsp;<%= f.check_box :include_sign_up %>
+    Is this class a recurring class? &nbsp;<%= f.check_box :recurring_event %>
   </div>
 
   <div class="field">
-    <%= f.label :class_content %>
+    Allow students to sign up for this class? &nbsp;<%= f.check_box :include_sign_up %>
+  </div>
+
+  <div class="field">
+    <h2><b>Class Content</b></h2>
     <%= f.text_area :class_content, style: "width: 600px; height: 500px; max-width: 100%" %>
   </div>
 
