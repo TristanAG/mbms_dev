@@ -33,7 +33,7 @@
           <br>
           Order Position: <%= class_page.order_position %>
           <br>
-          Start Time: <%= class_page.start_time %>
+          Start Time: <%= class_page.start_time.strftime('%A, %b %d') %>
           <small>
             <%= link_to 'Edit', edit_class_page_path(class_page) %> |
             <%= link_to 'Destroy', class_page, method: :delete, data: { confirm: 'Are you sure?' } %>
