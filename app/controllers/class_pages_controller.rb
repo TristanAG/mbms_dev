@@ -86,7 +86,7 @@ class ClassPagesController < ApplicationController
 
   def save_recurring_classes
     @class_page = ClassPage.new(class_page_params)
-    start_date = @class_page.start_time
+    start_date = @class_page.start_time_1
     increment_amount = 7
 
     year = start_date.year
@@ -100,7 +100,7 @@ class ClassPagesController < ApplicationController
     (0..6).each do |i|
       if day_of_week == Date::DAYNAMES[i]
         new_day_num = i + 1
-        @class_page.update({start_time: @class_page.start_time.change(day: new_day_num)})
+        @class_page.update({start_time: @class_page.start_time_1.change(day: new_day_num)})
         break
       end
     end
@@ -111,7 +111,7 @@ class ClassPagesController < ApplicationController
 
       if new_day_num <= last_day_of_month
         @next_class_instance = ClassPage.new(class_page_params)
-        @next_class_instance.update({start_time: @next_class_instance.start_time.change(month: month_num, day: new_day_num)})
+        @next_class_instance.update({start_time: @next_class_instance.start_time_1.change(month: month_num, day: new_day_num)})
 
       elsif new_day_num > last_day_of_month
         #determine the new month and day
@@ -120,7 +120,7 @@ class ClassPagesController < ApplicationController
         month_num += 1
 
         @next_class_instance = ClassPage.new(class_page_params)
-        @next_class_instance.update({start_time: @next_class_instance.start_time.change(month: month_num, day: first_instance_next_month)})
+        @next_class_instance.update({start_time: @next_class_instance.start_time_1.change(month: month_num, day: first_instance_next_month)})
 
         #reset variables for next pass
         new_day_num = first_instance_next_month
