@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130082402) do
+ActiveRecord::Schema.define(version: 20170201215335) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "content"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170130082402) do
     t.boolean  "first_instance"
     t.integer  "class_instances"
     t.boolean  "include_sign_up"
+    t.text     "sign_up_info"
     t.index ["slug"], name: "index_class_pages_on_slug"
   end
 

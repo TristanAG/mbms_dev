@@ -54,7 +54,7 @@
       </ul>
     </div>
   <% end %>
-  
+
   <div class="field">
   <h2><b>Class Title</b></h2>
     <%= f.text_field :class_title %>
@@ -79,6 +79,13 @@
   </div>
 
   <div class="field">
+    <h2><b>Sign Up Info</b></h2>
+    Include all material such as Dates, Times, Phone Numbers,<br>and other important information<br>
+    <i><b>Note:</b> If this class has a sign up form, content written<br> here will be also be visible on the sign up form</i>
+    <%= f.text_area :sign_up_info, style: "width: 600px; height: 200px; max-width: 100%" %>
+  </div>
+
+  <div class="field">
     <%= f.label :order_position %>
     <%= f.number_field :order_position %>
   </div>
@@ -90,7 +97,7 @@
     </div>
   <% else %>
     <div class="field" id="1">
-      <%= f.label "recurring start time" %>
+      <%= f.label "start time" %>
       <%= f.datetime_select :start_time_1, ampm: true %>
     </div>
   <% end %>
@@ -155,7 +162,7 @@
     <button id="add-button"><h4>+</h4></button>
     <button id="subtract-button"><h4>-</h4></button>
 
-    <div class="hidden-element" >
+    <div style="visibility:hidden" >
       <%= f.label :class_instances %>
       <%= f.text_field :class_instances %>
     </div>

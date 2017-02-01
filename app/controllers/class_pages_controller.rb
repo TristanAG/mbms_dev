@@ -18,7 +18,8 @@ class ClassPagesController < ApplicationController
   end
 
   def show
-    session[:class_title] = @class_page.class_title
+    #session[:class_title] = @class_page.class_title
+    session[:sign_up_info] = @class_page.sign_up_info
   end
 
   def schedule
@@ -72,6 +73,7 @@ class ClassPagesController < ApplicationController
                               slug_ref: slug_ref,
                               class_instances: @class_page.class_instances,
                               first_instance: true,
+                              sign_up_info: @class_page.sign_up_info,
                               include_sign_up: @class_page.include_sign_up})
         @class_page.save
         elsif i > 0
@@ -96,7 +98,7 @@ class ClassPagesController < ApplicationController
     last_day_of_month = start_date.end_of_month.day
     new_day_num = nil
 
-    #determine the actual start date of the first instance and save
+    #determine the actual day of the first instance and save
     (0..6).each do |i|
       if day_of_week == Date::DAYNAMES[i]
         new_day_num = i + 1
@@ -190,6 +192,7 @@ class ClassPagesController < ApplicationController
                                         :slug_ref,
                                         :first_instance,
                                         :class_instances,
+                                        :sign_up_info,
                                         :order_position)
   end
 
