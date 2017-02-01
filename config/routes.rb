@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   get '/classes', to: 'class_pages#index'
   #get '/class_pages/show', to: 'class_pages#show', :as => :show
   get '/contact', to: 'static_pages#contact'
+  get '/personal-practice-and-coaching', to: 'static_pages#personal_practice_and_coaching'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
