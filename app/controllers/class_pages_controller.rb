@@ -18,7 +18,7 @@ class ClassPagesController < ApplicationController
   end
 
   def show
-    #session[:class_title] = @class_page.class_title
+    session[:class_title] = @class_page.class_title
     session[:sign_up_info] = @class_page.sign_up_info
   end
 
