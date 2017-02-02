@@ -17,7 +17,7 @@
           <%= simple_format @class_page.class_content %>
         </p>
 
-        <h2><%= simple_format @class_page.sign_up_info %></h2>
+        <%= simple_format @class_page.sign_up_info %>
 
         <% if @class_page.include_sign_up %>
           <%= button_to "Sign Up", new_student_path, method: :get %>
