@@ -10,7 +10,7 @@
         <h1> <%= @class_page.class_title %></h1>
 
         <% unless @class_page.class_photo.blank? %>
-          <%= image_tag @class_page.class_photo.url %>
+          <%= image_tag @class_page.class_photo.url, style: "width: 600px; max-width: 100%" %>
         <% end %>
 
         <p>

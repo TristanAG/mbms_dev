@@ -75,7 +75,7 @@ class ClassPagesController < ApplicationController
                               sign_up_info: @class_page.sign_up_info,
                               include_sign_up: @class_page.include_sign_up})
         @class_page.save
-        elsif i > 0
+      elsif i > 0
 
         @multi_instance_class = ClassPage.new({class_title: name, start_time: class_time[i], slug_ref: slug_ref, include_sign_up: @class_page.include_sign_up})
         @multi_instance_class.save
