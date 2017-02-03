@@ -20,11 +20,11 @@
             <% class_pages.each do |class_page| %>
               <% if class_page.slug_ref != "drop-in-classes"%>
                 <% if class_page.recurring_event %>
-                  <a href="/classes/drop-in-classes"><%= class_page.class_title %></a>
+                  <a href="/classes/drop-in-classes"><%= class_page.class_title %></a><br>
                 <% else %>
-                  <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a>
+                  <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a><br>
                 <% end %>
-                <%= class_page.start_time.strftime("%l:%M %p") %><br>
+                <%= class_page.start_time.strftime("%l:%M %p") %><br><br>
             <% end %>
           <% end %>
         <% end %>
