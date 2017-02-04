@@ -56,7 +56,12 @@
   <div class="row">
     <h1>Students</h1>
 
-    <table>
+    <% @students.each do |student| %>
+      <h2><%= student.first_name %> <%= student.last_name %></h2>
+      class: <%= student.class_name %> | email: <%= student.email %><br><br>
+    <% end %>
+
+    <!-- <table>
       <thead>
         <tr>
           <th>Student name</th>
@@ -68,14 +73,14 @@
       <tbody>
         <% @students.each do |student| %>
           <tr>
-            <td><%= student.student_name %></td>
+            <td><%= student.first_name %> <%= student.last_name %></td>
             <td><%= student.class_name %></td>
             <td><%= link_to 'Edit', edit_student_path(student) %></td>
             <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
-    </table>
+    </table> -->
   </div>
 
 </div>

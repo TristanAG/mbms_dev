@@ -27,7 +27,10 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
-    @student = Student.new({class_name: session[:class_title], student_name: @student.student_name})
+    @student = Student.new({  class_name: session[:class_title],
+                              first_name: @student.first_name,
+                              last_name: @student.last_name,
+                              email: @student.email})
 
     respond_to do |format|
       if @student.save
@@ -72,7 +75,7 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:class_name, :student_name)
+      params.require(:student).permit(:class_name, :first_name, :last_name, :email)
     end
 
     def redirect_check

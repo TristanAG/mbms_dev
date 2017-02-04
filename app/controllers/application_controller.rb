@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_students
-    @students = Student.all
+    @students = Student.order("id DESC").all
   end
 
   def load_widgets
