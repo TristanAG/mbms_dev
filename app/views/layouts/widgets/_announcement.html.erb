@@ -3,7 +3,7 @@
     <h1><%= a.title %></h1>
 
       <p><%= image_tag a.image.url, class: "announcement-image" %></p>
-      <p><%= a.content %></p>
+      <p><%= a.content %><br><a href="<%= a.url %>">Learn More</p>
 
   </div>
 <% end %>
