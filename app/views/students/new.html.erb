@@ -13,11 +13,11 @@
     <p>Oops! please choose a <%= link_to 'class', classes_path %> first</p>
   <% else %>
 
-  <h1 style="text-align:center">Thanks for you interesest in<br>
+  <h1 style="text-align:center;">Thanks for you interesest in<br>
   <b><%= session[:class_title] %></b></h1>
 
-  <h2>We're excited to share this event with you!</h2>
-  Please fill out the form below to register for <h2 style="display:inline"><%= session[:class_title] %></h2>
+  <div style="width:600px; max-width: 100%;"><p>Please fill out the form below to register. <br>After we receive your registration,
+    we will reply by email with payment information and details about the offering.</p></div>
 
   <h2><%= simple_format session[:sign_up_info] %></h2>
 
