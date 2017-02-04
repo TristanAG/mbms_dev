@@ -66,7 +66,7 @@
   </div>
 
   <div class="field">
-    Is this class a recurring class? &nbsp;<%= f.check_box :recurring_event %>
+    Is this a repeating weekly drop-in? &nbsp;<%= f.check_box :recurring_event %>
   </div>
 
   <div class="field">
@@ -80,7 +80,10 @@
 
   <div class="field">
     <h2><b>Sign Up Info</b></h2>
-    Include all material such as Dates, Times, Phone Numbers,<br>and other important information<br>
+    Please format as:<br>
+    Day, Month, Date<br>
+    start time-end time<br>
+    $price<br>
     <i><b>Note:</b> If this class has a sign up form, content written<br> here will be also be visible on the sign up form</i>
     <%= f.text_area :sign_up_info, style: "width: 600px; height: 200px; max-width: 100%" %>
   </div>
