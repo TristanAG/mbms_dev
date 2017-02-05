@@ -33,7 +33,8 @@ class StudentsController < ApplicationController
                               email: @student.email,
                               phone_number: @student.phone_number,
                               previous_experience: @student.previous_experience,
-                              email_list: @student.email_list
+                              email_list: @student.email_list,
+                              referral_source: @student.referral_source
                               })
 
     respond_to do |format|
@@ -85,7 +86,8 @@ class StudentsController < ApplicationController
                                         :email,
                                         :phone_number,
                                         :previous_experience,
-                                        :email_list)
+                                        :email_list,
+                                        :referral_source)
     end
 
     def redirect_check

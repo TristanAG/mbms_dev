@@ -68,9 +68,20 @@
     <br>
     <%= f.radio_button(:email_list, "I already do!", style: "white-space:nowrap") %>
     <%= f.label(:email_list_third_option, "I already do!", style: "display:inline") %>
-
   </div>
 
+  <div class="field">
+    <p style="margin-bottom:8px"><span style="font-weight:500">How did you hear about this course?</span></p>
+
+    <%= f.radio_button(:referral_source, "Monterey Mindfulness Meetup", style: "white-space:nowrap") %>
+    <%= f.label(:referral_source_first_option, "Monterey Mindfulness Meetup", style: "display:inline") %>
+    <br>
+    <%= f.radio_button(:referral_source, "Facebook", style: "white-space:nowrap") %>
+    <%= f.label(:referral_source_first_option, "Facebook", style: "display:inline") %>
+    <br>
+    <%= f.radio_button(:referral_source, "Other", style: "white-space:nowrap") %>
+    <%= f.label(:referral_source_first_option, "Other", style: "display:inline") %>
+  </div>
 
 
   <div class="field">
