@@ -15,21 +15,60 @@
 
 
   <div class="field">
-    First Name:
-    <br>
+    <div style="font-weight:500">First Name:</div>
     <%= f.text_field :first_name %>
   </div>
 
   <div class="field">
-    Last Name:
-    <br>
+    <div style="font-weight:500">Last Name:</div>
     <%= f.text_field :last_name %>
   </div>
 
   <div class="field">
-    E-mail:
+    <div style="font-weight:500">E-mail Address:</div>
+    <i>To send confirmation of reservation, location, and details.</i>
     <br>
     <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <div style="font-weight:500">Phone Number:</div>
+    <i>Only used if the event would need to be changed or cancelled for any reason.</i>
+    <br>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <p style="margin-bottom:8px"><span style="font-weight:500">Do you have previous experience with meditation or other contemplative practices?</span><br>
+      <i>This information is simply for the teacher's reference in planning.</i>
+    </p>
+
+    <%= f.radio_button(:previous_experience, "No, I'm just starting out.", style: "white-space:nowrap") %>
+    <%= f.label(:previous_experience_first_option, "No, I'm just starting out.", style: "display:inline") %>
+    <br>
+    <%= f.radio_button(:previous_experience, "Yes, a little experience.", style: "white-space:nowrap") %>
+    <%= f.label(:previous_experience_second_option, "Yes, a little experience.", style: "display:inline") %>
+    <br>
+    <%= f.radio_button(:previous_experience, "Yes, I have an established practice.", style: "white-space:nowrap") %>
+    <%= f.label(:previous_experience_third_option, "Yes, I have an established practice.", style: "display:inline") %>
+    <br>
+    <%= f.radio_button(:previous_experience, "Other", style: "white-space:nowrap") %>
+    <%= f.label(:previous_experience_fourth_option, "Other", style: "display:inline") %>
+
+  </div>
+
+  <div class="field">
+    <p style="margin-bottom:8px"><span style="font-weight:500">Would you like to receive e-mailings from Monterey Bay Meditation Studio?</span></p>
+
+    <%= f.radio_button(:email_list, "Yes, please!", style: "white-space:nowrap") %>
+    <%= f.label(:email_list_first_option, "Yes, please!", style: "display:inline") %>
+    <br>
+    <%= f.radio_button(:email_list, "No, thanks!", style: "white-space:nowrap") %>
+    <%= f.label(:email_list_second_option, "No, thanks!", style: "display:inline") %>
+    <br>
+    <%= f.radio_button(:email_list, "I already do!", style: "white-space:nowrap") %>
+    <%= f.label(:email_list_third_option, "I already do!", style: "display:inline") %>
+
   </div>
 
 

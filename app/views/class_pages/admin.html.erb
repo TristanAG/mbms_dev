@@ -58,7 +58,9 @@
 
     <% @students.each do |student| %>
       <h2><%= student.first_name %> <%= student.last_name %></h2>
-      class: <%= student.class_name %> | email: <%= student.email %><br><br>
+      class: <%= student.class_name %> <br> email: <%= student.email %> <br> phone number: <%= student.phone_number %><br>
+      previous experience: <%= student.previous_experience %><br>
+      mailing list: <%= student.email_list %>
     <% end %>
 
     <!-- <table>

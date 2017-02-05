@@ -30,7 +30,11 @@ class StudentsController < ApplicationController
     @student = Student.new({  class_name: session[:class_title],
                               first_name: @student.first_name,
                               last_name: @student.last_name,
-                              email: @student.email})
+                              email: @student.email,
+                              phone_number: @student.phone_number,
+                              previous_experience: @student.previous_experience,
+                              email_list: @student.email_list
+                              })
 
     respond_to do |format|
       if @student.save
@@ -75,7 +79,13 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:class_name, :first_name, :last_name, :email)
+      params.require(:student).permit(  :class_name,
+                                        :first_name,
+                                        :last_name,
+                                        :email,
+                                        :phone_number,
+                                        :previous_experience,
+                                        :email_list)
     end
 
     def redirect_check
