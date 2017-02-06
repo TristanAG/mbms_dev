@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     @students = Student.order("id DESC").all
   end
 
+  def load_newsletter_subscribers
+    @newsletter_subscribers = Student.all.where(:email_list => "Yes, please!")
+  end
+
   def load_widgets
     this_week_widget
     announcement_widget

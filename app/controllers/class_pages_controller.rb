@@ -11,6 +11,7 @@ class ClassPagesController < ApplicationController
   def admin
     load_students
     load_admin_classes
+    load_newsletter_subscribers
     if !user_signed_in?
       redirect_to root_path
     end
