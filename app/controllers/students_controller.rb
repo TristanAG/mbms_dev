@@ -34,18 +34,28 @@ class StudentsController < ApplicationController
                               phone_number: @student.phone_number,
                               previous_experience: @student.previous_experience,
                               email_list: @student.email_list,
-                              referral_source: @student.referral_source
-                              })
+                              referral_source: @student.referral_source,
+                              additional_info: @student.additional_info,
+                              how_did_you_hear: @student.how_did_you_hear })
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to thank_you_path }
-        format.json { render :show, status: :created, location: @student }
+        if !@student.how_did_you_hear
+          format.html { redirect_to thank_you_path }
+          format.json { render :show, status: :created, location: @student }
+        else
+          format.html { redirect_to newsletter_thank_you_path }
+          format.json { render :show, status: :created, location: @student }
+        end
       else
         format.html { render :new }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def email_list_sign_up_page
+    @student = Student.new
   end
 
   # PATCH/PUT /students/1
@@ -87,7 +97,9 @@ class StudentsController < ApplicationController
                                         :phone_number,
                                         :previous_experience,
                                         :email_list,
-                                        :referral_source)
+                                        :referral_source,
+                                        :additional_info,
+                                        :how_did_you_hear)
     end
 
     def redirect_check

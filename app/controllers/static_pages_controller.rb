@@ -13,6 +13,9 @@ class StaticPagesController < ApplicationController
   def thank_you
   end
 
+  def mailing_list_thank_you
+  end
+
   def personal_practice_and_coaching
   end
 

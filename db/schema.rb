@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205025740) do
+ActiveRecord::Schema.define(version: 20170206185021) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "content"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20170205025740) do
     t.string   "previous_experience"
     t.string   "email_list"
     t.string   "referral_source"
+    t.text     "additional_info"
+    t.text     "how_did_you_hear"
   end
 
   create_table "users", force: :cascade do |t|

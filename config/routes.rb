@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   get '/personal-practice-and-coaching', to: 'static_pages#personal_practice_and_coaching'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/newsletter', to: 'students#email_list_sign_up_page'
+  get '/newsletter-thank-you', to: 'static_pages#mailing_list_thank_you'
 end

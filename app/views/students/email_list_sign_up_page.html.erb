@@ -1,0 +1,14 @@
+<div class="content">
+  <center>
+    <%= link_to image_tag("text.png", alt: "Monterey Bay Meditation Studio logo", width: "400", style: "margin-top: 20px; margin-bottom: 12px;"),
+  root_path  %>
+    <br>
+    <a href="#classes">Return to Main Site</a>
+    <hr>
+  </center>
+  <h1>Sign-Up for our Newsletter!</h1>
+  (We'll never give or sell your contact information to other parties.)
+  <br>
+  <br>
+  <%= render 'email_list', student: @student %>
+</div>
