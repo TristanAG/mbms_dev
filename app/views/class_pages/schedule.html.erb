@@ -17,9 +17,7 @@
           <br>
 
           <% class_pages.each do |class_page| %>
-            <% if user_signed_in? %>
-              <%= link_to "[edit]", edit_class_page_path(class_page)  %>
-            <% end %>
+
             <% if class_page.slug_ref != "drop-in-classes"%>
               <% if class_page.recurring_event %>
                 <a href="/classes/drop-in-classes"><%= class_page.class_title %></a><br>
@@ -30,7 +28,13 @@
                 <% end %>
                 <br>
               <% end %>
-              <%= class_page.start_time.strftime("%l:%M %p") %><br><br>
+              <% if user_signed_in? %>
+                <div><%= link_to "[edit]", edit_class_page_path(class_page), style: "color:red" %></div>
+              <% end %>
+              <%= class_page.start_time.strftime("%l:%M %p") %>
+              <br>
+
+              <br>
             <% end %>
           <% end %>
         <% end %>
