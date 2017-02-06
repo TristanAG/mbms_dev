@@ -17,6 +17,9 @@
           <br>
 
           <% class_pages.each do |class_page| %>
+            <% if user_signed_in? %>
+              <%= link_to "[edit]", edit_class_page_path(class_page)  %>
+            <% end %>
             <% if class_page.slug_ref != "drop-in-classes"%>
               <% if class_page.recurring_event %>
                 <a href="/classes/drop-in-classes"><%= class_page.class_title %></a><br>

@@ -2,6 +2,13 @@
   <div class="nine columns">
     <div class="content">
       <h1>Edit: "<%= @class_page.class_title %>"</h1>
+
+      <% if current_page?(:controller => 'class_pages', :action => 'edit') %>
+        <p style="background-color: lightgray">
+          <%= link_to 'Want to delete this class instance?', @class_page, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+      <% end %>
+
       <%= render 'form', class_page: @class_page %>
 
       <%= link_to 'Show', @class_page %> |
