@@ -67,7 +67,7 @@
 
     <div id="classes">
       <div class="row">
-        <div class="basicheader">Classes</div>
+        <h1 style="text-align:center">Classes</hi>
       </div>
 
       <div class="row">
@@ -98,7 +98,7 @@
 
       <div class="row">
         <div class="three columns">
-          <div class="basicheader">Sidebar</div>
+          <h1 style="text-align:center">Sidebar</h1>
         </div>
         <div class="three columns">
           <%= link_to 'New Announcement', new_announcement_path %><br>
@@ -110,7 +110,7 @@
     <div id="students">
 
       <div class="row">
-        <h1>Students</h1>
+        <h1 style="text-align:center">Students</h1>
 
         <% @students.each do |student| %>
           <h2><%= student.first_name %> <%= student.last_name %></h2>
@@ -127,7 +127,7 @@
 
     <div id="newsletter">
       <div class="row">
-        <h1>Newsletter Subscribers</h1>
+        <h1 style="text-align:center">Newsletter Subscribers</h1>
         <% @newsletter_subscribers.each do |student| %>
           <h2><%= student.first_name %> <%= student.last_name %></h2>
           email: <%= student.email %><br>

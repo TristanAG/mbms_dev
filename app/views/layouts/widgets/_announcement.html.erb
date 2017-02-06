@@ -2,8 +2,8 @@
   <div class="sidebar-panel">
     <h1><%= a.title %></h1>
 
-      <p><%= image_tag a.image.url, class: "announcement-image" %></p>
-      <p><a href="<%= a.url %>"><%= a.content %></a></p>
+      <%= image_tag a.image.url, class: "announcement-image" %><br>
+      <a href="<%= a.url %>"><%= a.content %></a>
       <% if user_signed_in? %>
         <div><%= link_to "[edit]", edit_announcement_path(a), style: "color:red" %></div>
         <div><%= link_to "[destroy]", a, method: :delete, data: { confirm: 'Are you sure?' }, style: "color:red" %></div>

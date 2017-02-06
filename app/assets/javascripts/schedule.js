@@ -1,7 +1,8 @@
 //remove teacher column for mobile view
 
 window.onload = function(){
-  console.log('\n\n    @tristan.ag \nwww.tristangruener.com\n     愛で建てられた\n       (•‿•)')
+  //console.log('\n\n    @tristan.ag \nwww.tristangruener.com\n マジック | フォーカス\n       (•‿•)')
+  console.log('\n\n@Tristan_AG 愛 健康 (•‿•)\n意図 | フォーカス | マジック')
 
 	toggle();
 };
