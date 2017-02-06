@@ -19,4 +19,7 @@ class StaticPagesController < ApplicationController
   def personal_practice_and_coaching
   end
 
+  def gifts
+  end
+
 end
