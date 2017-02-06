@@ -9,14 +9,18 @@
   </head>
 
   <body>
-    <div style="text-align:right; padding: 8px;">
-      <% if user_signed_in? %>
-        <%= link_to "Home", root_path %> |
-        <%= link_to "Admin", admin_path %> |
-        <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-      <% else %>
-        <%= link_to 'Sign In', new_user_session_path %>
-      <% end %>
+    <div class="container">
+      <div style="text-align:left; padding: 8px;">
+        <% if user_signed_in? %>
+          <%= link_to "Home", root_path %> |
+          <%= link_to "Admin", admin_path %> |
+          <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+        <% else %>
+          <%= link_to 'Sign In', new_user_session_path %>
+        <% end %>
+        <br>
+
+      </div>
     </div>
 
     <!-- notifications -->
@@ -32,7 +36,7 @@
       </div>
       <%= render 'layouts/footer' %>
     <% else %>
-    
+
     <!-- render the normal layout -->
       <%= render 'layouts/header' %>
 

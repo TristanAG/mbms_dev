@@ -51,14 +51,14 @@
   <div class="content" style="min-height: 800px">
     <div class="row">
       <div class="twelve columns">
-        <center>
-          <%= link_to image_tag("text.png", alt: "Monterey Bay Meditation Studio logo", width: "500"), root_path  %>
+
+          <%= link_to image_tag("wave-middle.png", alt: "Monterey Bay Meditation Studio logo", width: "18%"), root_path  %>
           <br>
           <a href="#classes" id="classes-link">Classes</a> |
           <a href="#sidebar" id="sidebar-link">Sidebar</a> |
           <a href="#students" id="students-link">Students</a> |
           <a href="#newsletter" id="newsletter-link">Newsletter</a>
-        </center>
+
 
       </div>
     </div>
@@ -67,7 +67,7 @@
 
     <div id="classes">
       <div class="row">
-        <h1 style="text-align:center">Classes</hi>
+        <h1>Classes</hi>
       </div>
 
       <div class="row">
@@ -98,11 +98,26 @@
 
       <div class="row">
         <div class="three columns">
-          <h1 style="text-align:center">Sidebar</h1>
+          <h1 style="text-align:left">Sidebar</h1>
+          <%= link_to 'New Announcement', new_announcement_path %><br>
         </div>
         <div class="three columns">
-          <%= link_to 'New Announcement', new_announcement_path %><br>
-          <%= render 'layouts/widgets/announcement' %>
+
+          <% @announcements.each do |a| %>
+              <div style="border: 1px solid lightgray; padding: 24px;">
+              <h1><%= a.title %></h1>
+
+                <%= image_tag a.image.url, class: "announcement-image" %><br>
+                <a href="<%= a.url %>"><%= a.content %></a>
+
+                <% if user_signed_in? %>
+                <br><br>
+                  <div><%= link_to "[edit]", edit_announcement_path(a), style: "color:red" %></div>
+                  <div><%= link_to "[destroy]", a, method: :delete, data: { confirm: 'Are you sure?' }, style: "color:red" %></div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -110,7 +125,7 @@
     <div id="students">
 
       <div class="row">
-        <h1 style="text-align:center">Students</h1>
+        <h1>Students</h1>
 
         <% @students.each do |student| %>
           <h2><%= student.first_name %> <%= student.last_name %></h2>
@@ -127,7 +142,7 @@
 
     <div id="newsletter">
       <div class="row">
-        <h1 style="text-align:center">Newsletter Subscribers</h1>
+        <h1>Newsletter Subscribers</h1>
         <% @newsletter_subscribers.each do |student| %>
           <h2><%= student.first_name %> <%= student.last_name %></h2>
           email: <%= student.email %><br>
