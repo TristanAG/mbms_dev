@@ -24,4 +24,16 @@ Rails.application.routes.draw do
 
   get '/newsletter', to: 'students#email_list_sign_up_page'
   get '/newsletter-thank-you', to: 'static_pages#mailing_list_thank_you'
+
+  #temporary class redirects during site switch-over
+  get '/classes/bonfire.php', to: redirect('/classes/community-event-beach-bonfire')
+  get '/classes/the-mindful-and-compassionate-living-series.php', to: redirect('/classes/the-mindful-and-compassionate-living-series')
+  get '/classes/stillness-practice.php', to: redirect('/classes/stillness-practice-a-silent-retreat-at-asilomar')
+
+  #google seo redirects
+  get '/index.php', to: redirect('/')
+  get '/teachers/php', to: redirect('/teachers')
+  get '/schedule.php', to: redirect('/schedule')
+  get '/classes/index.php', to: redirect('/classes')
+  get '/contact.php', to: redirect('/contact')
 end
