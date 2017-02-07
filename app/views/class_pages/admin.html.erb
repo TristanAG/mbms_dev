@@ -115,7 +115,6 @@
               <div><%= link_to "[destroy]", a, method: :delete, data: { confirm: 'Are you sure?' }, style: "color:red" %></div>
               <% end %>
             </div>
-            <>
           <% end %>
         </div>
       </div>
@@ -127,7 +126,7 @@
         <h1>Students</h1>
 
         <% @students.each do |student| %>
-  
+
         Added: <%= student.created_at.strftime("%b %e, %l:%M %p") %>
         <div style="border: 1px solid lightgray; padding: 8px;">
           <b><%= student.first_name %> <%= student.last_name %></b> <a href="#"><%= student.email %></a> | <%= student.phone_number %>
