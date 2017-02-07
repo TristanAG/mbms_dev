@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :students
   devise_for :users
+  get '/login', to: redirect('/users/sign_in')
   resources :announcements
   #resources :class_pages
 
@@ -36,4 +37,5 @@ Rails.application.routes.draw do
   get '/schedule.php', to: redirect('/schedule')
   get '/classes/index.php', to: redirect('/classes')
   get '/contact.php', to: redirect('/contact')
+
 end
