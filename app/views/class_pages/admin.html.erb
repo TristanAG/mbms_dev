@@ -127,11 +127,12 @@
         <h1>Students</h1>
 
         <% @students.each do |student| %>
+  
         Added: <%= student.created_at.strftime("%b %e, %l:%M %p") %>
         <div style="border: 1px solid lightgray; padding: 8px;">
           <b><%= student.first_name %> <%= student.last_name %></b> <a href="#"><%= student.email %></a> | <%= student.phone_number %>
           <br>
-
+          <div><%= link_to "[view]", student %></div>
 
         </div>
         <br>
