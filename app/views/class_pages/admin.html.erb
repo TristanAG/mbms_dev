@@ -115,7 +115,7 @@
               <div><%= link_to "[destroy]", a, method: :delete, data: { confirm: 'Are you sure?' }, style: "color:red" %></div>
               <% end %>
             </div>
-            <br>
+            <>
           <% end %>
         </div>
       </div>
@@ -127,13 +127,29 @@
         <h1>Students</h1>
 
         <% @students.each do |student| %>
-          <h2><%= student.first_name %> <%= student.last_name %></h2>
-          class: <%= student.class_name %> <br> email: <%= student.email %> <br> phone number: <%= student.phone_number %><br>
-          previous experience: <%= student.previous_experience %><br>
-          mailing list: <%= student.email_list %><br>
-          how did you hear about us: <%= student.referral_source %><br>
-          additional info: <%= student.additional_info %><br>
-          how did you hear (field): <%= student.how_did_you_hear %>
+        Added: <%= student.created_at.strftime("%b %e, %l:%M %p") %>
+        <div style="border: 1px solid lightgray; padding: 8px;">
+          <b><%= student.first_name %> <%= student.last_name %></b> <a href="#"><%= student.email %></a> | <%= student.phone_number %>
+          <br>
+
+
+        </div>
+        <br>
+
+        <!-- <table>
+          <tr>
+            <td><h2><%= student.first_name %> <%= student.last_name %></h2></td>
+            <td>
+              class: <%= student.class_name %> <br> email: <%= student.email %> <br> phone number: <%= student.phone_number %><br>
+              previous experience: <%= student.previous_experience %><br>
+              mailing list: <%= student.email_list %><br>
+              how did you hear about us: <%= student.referral_source %><br>
+              additional info: <%= student.additional_info %><br>
+              how did you hear (field): <%= student.how_did_you_hear %>
+            </td>
+
+        </tr>
+        </table> -->
         <% end %>
 
       </div>
