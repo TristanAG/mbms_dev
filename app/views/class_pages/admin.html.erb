@@ -102,21 +102,20 @@
           <%= link_to 'New Announcement', new_announcement_path %><br>
         </div>
         <div class="three columns">
-
           <% @announcements.each do |a| %>
-              <div style="border: 1px solid lightgray; padding: 24px;">
+            <div style="border: 1px solid lightgray; padding: 24px;">
               <h1><%= a.title %></h1>
 
-                <%= image_tag a.image.url, class: "announcement-image" %><br>
-                <a href="<%= a.url %>"><%= a.content %></a>
+              <%= image_tag a.image.url, class: "announcement-image" %><br>
+              <a href="<%= a.url %>"><%= a.content %></a>
 
-                <% if user_signed_in? %>
-                <br><br>
-                  <div><%= link_to "[edit]", edit_announcement_path(a), style: "color:red" %></div>
-                  <div><%= link_to "[destroy]", a, method: :delete, data: { confirm: 'Are you sure?' }, style: "color:red" %></div>
-                <% end %>
-              </div>
+              <% if user_signed_in? %>
+              <br><br>
+              <div><%= link_to "[edit]", edit_announcement_path(a), style: "color:red" %></div>
+              <div><%= link_to "[destroy]", a, method: :delete, data: { confirm: 'Are you sure?' }, style: "color:red" %></div>
+              <% end %>
             </div>
+            <br>
           <% end %>
         </div>
       </div>
