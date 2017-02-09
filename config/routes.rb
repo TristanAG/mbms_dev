@@ -26,11 +26,16 @@ Rails.application.routes.draw do
   get '/newsletter', to: 'students#email_list_sign_up_page'
   get '/newsletter-thank-you', to: 'static_pages#mailing_list_thank_you'
 
-  #temporary class redirects during site switch-over
-  get '/classes/community-event-beach-bonfire', to: redirect('/classes/bonfire.php')
-  get '/classes/the-mindful-and-compassionate-living-series', to: redirect('/classes/the-mindful-and-compassionate-living-series.php')
-  get '/classes/stillness-practice-a-silent-retreat-at-asilomar', to: redirect('/classes/stillness-practice.php')
-  get '/classes/stillness-practice.php'
-  
+  # #temporary class redirects during site switch-over
+  # get '/classes/community-event-beach-bonfire', to: redirect('/classes/bonfire.php')
+  # get '/classes/the-mindful-and-compassionate-living-series', to: redirect('/classes/the-mindful-and-compassionate-living-series.php')
+  # get '/classes/stillness-practice-a-silent-retreat-at-asilomar', to: redirect('/classes/stillness-practice.php')
+  # get '/classes/stillness-practice.php'
+  # #google seo redirects
+  # get '/index.php', to: redirect('/')
+  # get '/teachers/php', to: redirect('/teachers')
+  # get '/schedule.php', to: redirect('/schedule')
+  # get '/classes/index.php', to: redirect('/classes')
+  # get '/contact.php', to: redirect('/contact')
 
 end
