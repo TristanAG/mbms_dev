@@ -22,19 +22,17 @@
               <% if class_page.recurring_event %>
                 <a href="/classes/drop-in-classes"><%= class_page.class_title %></a><br>
               <% else %>
-
                 <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a>
-                <% if class_page.include_sign_up %>
-                  <span class="star">*</span>
-                <% end %>
+                <% if class_page.include_sign_up %><span class="star">*</span><% end %>
                 <br>
               <% end %>
+
               <% if user_signed_in? %>
                 <div><%= link_to "[edit]", edit_class_page_path(class_page), style: "color:red" %></div>
               <% end %>
+
               <%= class_page.start_time.strftime("%l:%M %p") %>
               <br>
-
               <br>
             <% end %>
           <% end %>
