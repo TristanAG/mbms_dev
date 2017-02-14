@@ -22,7 +22,8 @@
               <% if class_page.recurring_event %>
                 <a href="/classes/drop-in-classes"><%= class_page.class_title %></a><br>
               <% else %>
-                <a href="/classes/<%= class_page.slug %>"><%= class_page.class_title %></a>
+
+                <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a>
                 <% if class_page.include_sign_up %>
                   <span class="star">*</span>
                 <% end %>
