@@ -50,7 +50,7 @@
               <br>
               <br>
             <% else %>
-              <%= class_page.start_time.strftime('%A, %d | %l:%M %p') %> <br> <a href="/classes/<%= class_page.slug %>"><%= class_page.class_title %></a>
+              <%= class_page.start_time.strftime('%A, %d | %l:%M %p') %> <br> <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a>
               <% if class_page.include_sign_up %>
                 <span class="star">*</span>
               <% end %>

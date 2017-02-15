@@ -133,6 +133,14 @@ class ClassPagesController < ApplicationController
   end
 
   def update
+
+    #you would need to update the class title AND slug for every course with = slug
+
+    # if @class_page.first_instance
+    #   @classes_to_update = ClassPage.all.where(:slug_ref => @class_page.slug)
+    #   @classes_to_update.update_all(:slug => @class_page.class_title)
+    # end
+
     respond_to do |format|
       if @class_page.update(class_page_params)
         format.html { redirect_to @class_page, notice: 'Class page was successfully updated.' }
