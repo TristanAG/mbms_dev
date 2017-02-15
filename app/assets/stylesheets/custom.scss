@@ -670,6 +670,24 @@ hr{
   }
 }
 
+//classe_pages control
+@media (min-width: 745px){
+  #class-page-full-view{
+    display: block;
+  }
+  #class-page-mobile-view{
+    display: none;
+  }
+}
+@media (max-width: 745px) {
+  #class-page-full-view{
+    display: none;
+  }
+  #class-page-mobile-view{
+    display: block;
+  }
+}
+
 label{
   font-weight: 100;
   color: #595959;

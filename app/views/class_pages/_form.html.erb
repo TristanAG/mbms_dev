@@ -55,10 +55,12 @@
     </div>
   <% end %>
 
+<% if current_page?(new_class_page_path) %>
   <div class="field">
   <h2><b>Class Title</b></h2>
     <%= f.text_field :class_title %>
   </div>
+<% end %>
 
   <div class="field">
     <h2><b>Include an image for the class?</b></h2>
