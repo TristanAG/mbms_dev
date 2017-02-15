@@ -1,10 +1,12 @@
 <% @announcements.each do |a| %>
+  <a href="<%= a.url %>">
   <div class="sidebar-panel">
     <h1><%= a.title %></h1>
 
       <%= image_tag a.image.url, class: "announcement-image" %><br>
-      <a href="<%= a.url %>"><%= a.content %></a>
-      
+      <%= a.content %>
+
 
   </div>
+  </a>
 <% end %>
