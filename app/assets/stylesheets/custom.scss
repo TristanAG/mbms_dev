@@ -679,12 +679,26 @@ hr{
   #class-page-mobile-view{
     display: none;
   }
+
+  #class-full-image-display{
+    display: block;
+  }
+  #class-mobile-image-display{
+    display: none;
+  }
 }
 @media (max-width: 745px) {
   #class-page-full-view{
     display: none;
   }
   #class-page-mobile-view{
+    display: block;
+  }
+
+  #class-full-image-display{
+    display: none;
+  }
+  #class-mobile-image-display{
     display: block;
   }
 }

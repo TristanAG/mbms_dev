@@ -1,17 +1,32 @@
 <% provide(:title, @class_page.class_title) %>
 
+<!-- <span id="class-mobile-image-display"> -->
+  <!-- close the container tag to achieve full width -->
+  </div>
+  <div id="class-mobile-image-display">
+    <h1 style="margin-left: 6.5%;"> <%= @class_page.class_title %></h1>
+    <% unless @class_page.class_photo.blank? %>
+      <%= image_tag @class_page.class_photo.url, style: "width: 745px; max-width: 100%" %>
+    <% end %>
+  </div>
+  <div class="container">
+<!-- </span> -->
+
   <div class="two columns" id="class-page-full-view">
     <%= render 'layouts/sidebar_classes' %>
   </div>
 
+
+
   <div class="seven columns" style="background-color:white">
       <div class="content">
-        <h1> <%= @class_page.class_title %></h1>
+        <div id="class-full-image-display">
+          <h1> <%= @class_page.class_title %></h1>
 
-        <% unless @class_page.class_photo.blank? %>
-          <%= image_tag @class_page.class_photo.url, style: "width: 600px; max-width: 100%" %>
-        <% end %>
-
+          <% unless @class_page.class_photo.blank? %>
+            <%= image_tag @class_page.class_photo.url, style: "width: 600px; max-width: 100%" %>
+          <% end %>
+        </div>
         <p>
           <%= simple_format @class_page.class_content %>
         </p>
