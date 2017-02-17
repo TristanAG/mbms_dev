@@ -5,6 +5,7 @@
     $( '#sidebar' ).hide()
     $( '#students' ).hide()
     $( '#newsletter' ).hide()
+    $( '#instructions' ).show()
 
     //classes state
     $( '#classes-link' ).click( function(e){
@@ -13,6 +14,7 @@
       $( '#sidebar' ).hide()
       $( '#students' ).hide()
       $( '#newsletter' ).hide()
+      $( '#instructions' ).hide()
     })
 
     //sidebar state
@@ -22,6 +24,7 @@
       $( '#sidebar' ).show()
       $( '#students' ).hide()
       $( '#newsletter' ).hide()
+      $( '#instructions' ).hide()
     })
 
     //students state
@@ -31,6 +34,7 @@
       $( '#sidebar' ).hide()
       $( '#students' ).show()
       $( '#newsletter' ).hide()
+      $( '#instructions' ).hide()
     })
 
     //newsletter state
@@ -40,6 +44,17 @@
       $( '#sidebar' ).hide()
       $( '#students' ).hide()
       $( '#newsletter' ).show()
+      $( '#instructions' ).hide()
+    })
+
+    //instructions state
+    $( '#instructions-link' ).click( function(e){
+      e.preventDefault()
+      $( '#classes' ).hide()
+      $( '#sidebar' ).hide()
+      $( '#students' ).hide()
+      $( '#newsletter' ).hide()
+      $( '#instructions' ).show()
     })
   })
 </script>
@@ -57,7 +72,8 @@
           <a href="#classes" id="classes-link">Classes</a> |
           <a href="#sidebar" id="sidebar-link">Sidebar</a> |
           <a href="#students" id="students-link">Students</a> |
-          <a href="#newsletter" id="newsletter-link">Newsletter</a>
+          <a href="#newsletter" id="newsletter-link">Newsletter</a> |
+          <a href="#instructions" id="instructions-link">Instructions</a>
 
 
       </div>
@@ -163,6 +179,50 @@
           email: <%= student.email %><br>
           how did you hear about us: <%= student.referral_source %><br>
         <% end %>
+      </div>
+    </div>
+
+    <div id="instructions">
+      <div class="row">
+        <h1>Instructions</h1>
+      </div>
+      <div class="row">
+        <div class="four columns">
+
+          <a href="#">Classes</a><br>
+
+          <a href="#">Announcements</a><br>
+
+        </div>
+        <div class="eight columns">
+          <div id="create-edit-classes"><b>Create a class</b></div>
+            <p>
+              There are 3 ways to create classes:
+              <ul>
+                <li>Create a new class with only 1 occurance</li>
+                <li>Create a new class with multiple occurances</li>
+                <li>Create a recurring class that repeats throughout the year</li>
+              </ul>
+            </p>
+            <p>
+              To create a new class, to classes -> New Class Page.
+            </p>
+            <p>
+              <code>Class Title</code><br>
+              This will be the name of your class. Please, for now, be certain of what you want the class to be called.
+              At this time you cannot currently edit the title after it has been created.
+            </p>
+
+              <code>Include an image for this class?</code><br>
+              If your class has an image that correspondes with it, upload it here
+            </p>
+
+
+
+
+
+          <div id="create-edit-announcements"><b>Create and Edit Announcements</b></div>
+        </div>
       </div>
     </div>
   </div>
