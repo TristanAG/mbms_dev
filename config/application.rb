@@ -12,6 +12,7 @@ module MbmsDev
     # -- all .rb files in that directory are automatically loaded.
 
     config.time_zone = 'Pacific Time (US & Canada)'
+    config.beginning_of_week = :sunday
 
   end
 
