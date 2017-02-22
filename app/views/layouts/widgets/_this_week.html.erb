@@ -12,7 +12,7 @@
             <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a>
           <% end %>
           <br>
-          <small><%= class_page.start_time.strftime('%A') %> | <%= class_page.start_time.strftime("%l:%M %p") %></small>
+          <small><%= class_page.start_time.strftime("%A #{class_page.start_time.day.ordinalize}") %> | <%= class_page.start_time.strftime("%l:%M %p") %></small>
         <% end %>
       </li>
     </ul>
