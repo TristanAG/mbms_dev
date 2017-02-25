@@ -2,9 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def this_week_widget
-    today = Date.today
-    seven_days_later = Time.new(today.strftime('%Y'), today.strftime('%m'), today.strftime('%d').to_i + 7)
-    @classes = ClassPage.where(start_time: today..seven_days_later).order("start_time ASC").all
+    @classes = ClassPage.where(start_time: Date.today.beginning_of_week..Date.today.end_of_week)
+    # today = Date.today
+    # seven_days_later = Time.new(today.strftime('%Y'), today.strftime('%m'), today.strftime('%d').to_i + 7)
+    # @classes = ClassPage.where(start_time: today..seven_days_later).order("start_time ASC").all
   end
 
   def announcement_widget
