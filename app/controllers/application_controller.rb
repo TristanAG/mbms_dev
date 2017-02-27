@@ -12,11 +12,12 @@ class ApplicationController < ActionController::Base
   end
 
   def load_students
-    @students = Student.order("id DESC").all
+    @students = Student.all.where.not(:class_name => nil).order("created_at DESC").all
+    #@students = Student
   end
 
   def load_newsletter_subscribers
-    @newsletter_subscribers = Student.all.where(:email_list => "Yes, please!")
+    @newsletter_subscribers = Student.all.where(:email_list => "Yes, please!").order("created_at DESC").all
   end
 
   def load_widgets

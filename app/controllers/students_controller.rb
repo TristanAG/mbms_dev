@@ -27,16 +27,25 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
-    @student = Student.new({  class_name: session[:class_title],
-                              first_name: @student.first_name,
-                              last_name: @student.last_name,
-                              email: @student.email,
-                              phone_number: @student.phone_number,
-                              previous_experience: @student.previous_experience,
-                              email_list: @student.email_list,
-                              referral_source: @student.referral_source,
-                              additional_info: @student.additional_info,
-                              how_did_you_hear: @student.how_did_you_hear })
+
+    if session[:class_title] != nil
+      @student = Student.new({  class_name: session[:class_title],
+                                first_name: @student.first_name,
+                                last_name: @student.last_name,
+                                email: @student.email,
+                                phone_number: @student.phone_number,
+                                previous_experience: @student.previous_experience,
+                                email_list: @student.email_list,
+                                referral_source: @student.referral_source,
+                                additional_info: @student.additional_info,
+                                how_did_you_hear: @student.how_did_you_hear })
+    else
+      @student = Student.new({  first_name: @student.first_name,
+                                last_name: @student.last_name,
+                                email: @student.email,
+                                email_list: "Yes, please!",
+                                how_did_you_hear: @student.how_did_you_hear })
+    end
 
     respond_to do |format|
       if @student.save
@@ -55,8 +64,21 @@ class StudentsController < ApplicationController
   end
 
   def email_list_sign_up_page
+    session[:class_title] = nil
     @student = Student.new
   end
+
+  # def add_student_to_email_list
+  #   @student = Student.new(student_params)
+  #   @student = Student.new({  first_name: @student.first_name,
+  #                             last_name: @student.last_name,
+  #                             email: @student.email,
+  #                             email_list: "Yes, please!",
+  #                             how_did_you_hear: @student.how_did_you_hear })
+  #   if @student.save
+  #     format.html { redirect_to newsletter_thank_you_path }
+  #   end
+  # end
 
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
