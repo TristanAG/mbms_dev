@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
 
   def load_students
     @students = Student.all.where.not(:class_name => nil).order("created_at DESC").all
-    #@students = Student
   end
 
   def load_newsletter_subscribers
