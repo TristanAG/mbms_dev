@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <strong>Student name:</strong>
+  <%= @student.first_name %> <%= @student.last_name %>
+</p>
 
 <p>
   <strong>Class name:</strong>
@@ -6,8 +9,33 @@
 </p>
 
 <p>
-  <strong>Student name:</strong>
-  <%= @student.first_name %> <%= @student.last_name %> 
+  <strong>Email:</strong>
+  <%= @student.email %>
+</p>
+
+<p>
+  <strong>Phone Number:</strong>
+  <%= @student.phone_number %>
+</p>
+
+<p>
+  <strong>Previous Experience:</strong>
+  <%= @student.previous_experience %>
+</p>
+
+<p>
+  <strong>Referral Source:</strong>
+  <%= @student.referral_source %>
+</p>
+
+<p>
+  <strong>How did you hear about us?:</strong>
+  <%= @student.how_did_you_hear %>
+</p>
+
+<p>
+  <strong>Additional Info:</strong>
+  <%= @student.additional_info %>
 </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |

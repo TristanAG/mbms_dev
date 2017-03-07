@@ -145,27 +145,14 @@
 
         Added: <%= student.created_at.strftime("%b %e, %l:%M %p") %>
         <div style="border: 1px solid lightgray; padding: 8px;">
-          <b><%= student.first_name %> <%= student.last_name %></b> <a href="#"><%= student.email %></a> | <%= student.phone_number %>
+          <b><%= student.first_name %> <%= student.last_name %></b> | <%= student.class_name %>
           <br>
           <div><%= link_to "[view]", student %></div>
 
         </div>
         <br>
 
-        <!-- <table>
-          <tr>
-            <td><h2><%= student.first_name %> <%= student.last_name %></h2></td>
-            <td>
-              class: <%= student.class_name %> <br> email: <%= student.email %> <br> phone number: <%= student.phone_number %><br>
-              previous experience: <%= student.previous_experience %><br>
-              mailing list: <%= student.email_list %><br>
-              how did you hear about us: <%= student.referral_source %><br>
-              additional info: <%= student.additional_info %><br>
-              how did you hear (field): <%= student.how_did_you_hear %>
-            </td>
-
-        </tr>
-        </table> -->
+        
         <% end %>
 
       </div>
@@ -227,7 +214,7 @@
               <code>Create a recurring class that repeats throughout the year</code><br>
               When you create a recurring class, the only relevant details are the Title, Start Time, and 'Is this a repeating weekly drop-in?'.
               When a visitor finds one of these classes, they will always link back to the 'drop-in classes' page. You can edit the 'drop-in classes' page
-              by selecting the Classes link in the here in the Admin section. It will be the first Class in the list.
+              by selecting the Classes link in the here in the Admin section.
               <ul>
                 <li>To create a recurring class, you need to check the box for 'Is this a repeating weekly drop-in?'</li>
                 <li>You need to set the start time to be the very first instance of the year. For example, if your
@@ -236,7 +223,7 @@
               </ul>
             </p>
 
-          
+
 
         </div>
       </div>
