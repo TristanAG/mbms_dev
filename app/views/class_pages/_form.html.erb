@@ -76,6 +76,10 @@
   </div>
 
   <div class="field">
+    Do you want to hide this class from the sidebar? &nbsp;<%= f.check_box :hide_from_sidebar %>
+  </div>
+
+  <div class="field">
     <h2><b>Class Content</b></h2>
     <%= f.text_area :class_content, style: "width: 600px; height: 500px; max-width: 100%" %>
   </div>

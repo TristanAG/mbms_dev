@@ -74,7 +74,8 @@ class ClassPagesController < ApplicationController
                               class_instances: @class_page.class_instances,
                               first_instance: true,
                               sign_up_info: @class_page.sign_up_info,
-                              include_sign_up: @class_page.include_sign_up})
+                              include_sign_up: @class_page.include_sign_up,
+                              hide_from_sidebar: @class_page.hide_from_sidebar})
         @class_page.save
       elsif i > 0
 
@@ -167,11 +168,11 @@ class ClassPagesController < ApplicationController
   end
 
   def load_class_pages
-    @class_pages = ClassPage.order("order_position ASC").all
+    @class_pages = ClassPage.order("start_time ASC").all
   end
 
   def load_sidebar_classes
-    @sidebar_class_pages = ClassPage.where(recurring_event: false).order("order_position ASC")
+    @sidebar_class_pages = ClassPage.where(recurring_event: false).where(hide_from_sidebar: false).order("start_time ASC")
   end
 
   def load_admin_classes
@@ -201,7 +202,8 @@ class ClassPagesController < ApplicationController
                                         :first_instance,
                                         :class_instances,
                                         :sign_up_info,
-                                        :order_position)
+                                        :order_position,
+                                        :hide_from_sidebar)
   end
 
 end
