@@ -75,7 +75,8 @@ class ClassPagesController < ApplicationController
                               first_instance: true,
                               sign_up_info: @class_page.sign_up_info,
                               include_sign_up: @class_page.include_sign_up,
-                              hide_from_sidebar: @class_page.hide_from_sidebar})
+                              hide_from_sidebar: @class_page.hide_from_sidebar,
+                              shopify_button: @class_page.shopify_button})
         @class_page.save
       elsif i > 0
 
@@ -177,6 +178,11 @@ class ClassPagesController < ApplicationController
 
   def load_admin_classes
     @admin_class_pages = ClassPage.order("order_position ASC").all.where(:first_instance => true)
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @admin_class_pages }
+    end
   end
 
   def class_page_params
@@ -203,7 +209,8 @@ class ClassPagesController < ApplicationController
                                         :class_instances,
                                         :sign_up_info,
                                         :order_position,
-                                        :hide_from_sidebar)
+                                        :hide_from_sidebar,
+                                        :shopify_button)
   end
 
 end

@@ -1,4 +1,7 @@
-//remove teacher column for mobile view
+
+
+
+
 
 window.onload = function(){
   //console.log('\n\n    @tristan.ag \nwww.tristangruener.com\n マジック | フォーカス\n       (•‿•)')

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307230422) do
+ActiveRecord::Schema.define(version: 20170328205406) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "content"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170307230422) do
     t.boolean  "include_sign_up"
     t.text     "sign_up_info"
     t.boolean  "hide_from_sidebar"
+    t.text     "shopify_button"
     t.index ["slug"], name: "index_class_pages_on_slug"
   end
 
