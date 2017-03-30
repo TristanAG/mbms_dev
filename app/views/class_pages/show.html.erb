@@ -34,7 +34,7 @@
         <%= simple_format @class_page.sign_up_info %>
 
         <% unless @class_page.shopify_button.blank? %>
-          shopify button -> <%= raw @class_page.shopify_button %>
+          <%= raw @class_page.shopify_button %>
         <% end %>
 
         <% if @class_page.include_sign_up %>
