@@ -28,4 +28,6 @@
     <%= link_to "Schedule", schedule_path,  class: "nav-links" %>
     <%= link_to "Classes",  classes_path,   class: "nav-links" %>
     <%= link_to "Contact",  contact_path,   class: "nav-links" %>
+
+    <%= link_to @basic_pages.first.page_title, @basic_pages.first, class: "nav-links" %>
 </div>

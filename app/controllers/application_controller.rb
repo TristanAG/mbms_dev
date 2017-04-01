@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :load_basic_pages
+
+  def load_basic_pages
+    @basic_pages = BasicPage.all
+  end
 
   def this_week_widget
     today = Date.today
@@ -23,5 +28,7 @@ class ApplicationController < ActionController::Base
     this_week_widget
     announcement_widget
   end
+
+
 
 end

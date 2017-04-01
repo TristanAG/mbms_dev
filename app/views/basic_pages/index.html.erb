@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Basic Pages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Page content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @basic_pages.each do |basic_page| %>
+      <tr>
+        <td><%= basic_page.page_content %></td>
+        <td><%= link_to 'Show', basic_page %></td>
+        <td><%= link_to 'Edit', edit_basic_page_path(basic_page) %></td>
+        <td><%= link_to 'Destroy', basic_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Basic Page', new_basic_page_path %>

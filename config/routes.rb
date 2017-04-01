@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :basic_pages
   resources :students
   devise_for :users
   get '/login', to: redirect('/users/sign_in')

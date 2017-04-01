@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328205406) do
+ActiveRecord::Schema.define(version: 20170331225841) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "content"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20170328205406) do
     t.datetime "image_updated_at"
     t.string   "title"
     t.string   "url"
+  end
+
+  create_table "basic_pages", force: :cascade do |t|
+    t.text     "page_content"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "page_title"
   end
 
   create_table "class_pages", force: :cascade do |t|
