@@ -2,10 +2,12 @@ class ClassPagesController < ApplicationController
   before_action :set_class_page, only: [:show, :edit, :update, :destroy]
   before_action :load_widgets
   before_action :load_class_pages, only: [:schedule]
+  before_action :load_basic_pages
   before_action :load_sidebar_classes, only: [:index, :show]
   before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
+    @page = BasicPage.find_by(page_title: 'Classes')
   end
 
   def admin

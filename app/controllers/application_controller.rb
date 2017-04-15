@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :load_basic_pages
+  # before_action :load_basic_pages
 
   def load_basic_pages
     @basic_pages = BasicPage.all

@@ -13,6 +13,7 @@
   <tbody>
     <% @basic_pages.each do |basic_page| %>
       <tr>
+        <td><%= basic_page.page_title %></td>
         <td><%= basic_page.page_content %></td>
         <td><%= link_to 'Show', basic_page %></td>
         <td><%= link_to 'Edit', edit_basic_page_path(basic_page) %></td>

@@ -5,6 +5,7 @@
     $( '#sidebar' ).hide()
     $( '#students' ).hide()
     $( '#newsletter' ).hide()
+    $( '#basic-pages' ).hide()
     $( '#instructions' ).show()
 
     //classes state
@@ -14,6 +15,7 @@
       $( '#sidebar' ).hide()
       $( '#students' ).hide()
       $( '#newsletter' ).hide()
+      $( '#basic-pages' ).hide()
       $( '#instructions' ).hide()
     })
 
@@ -24,6 +26,7 @@
       $( '#sidebar' ).show()
       $( '#students' ).hide()
       $( '#newsletter' ).hide()
+      $( '#basic-pages' ).hide()
       $( '#instructions' ).hide()
     })
 
@@ -34,6 +37,7 @@
       $( '#sidebar' ).hide()
       $( '#students' ).show()
       $( '#newsletter' ).hide()
+      $( '#basic-pages' ).hide()
       $( '#instructions' ).hide()
     })
 
@@ -44,6 +48,7 @@
       $( '#sidebar' ).hide()
       $( '#students' ).hide()
       $( '#newsletter' ).show()
+      $( '#basic-pages' ).hide()
       $( '#instructions' ).hide()
     })
 
@@ -54,7 +59,19 @@
       $( '#sidebar' ).hide()
       $( '#students' ).hide()
       $( '#newsletter' ).hide()
+      $( '#basic-pages' ).hide()
       $( '#instructions' ).show()
+    })
+
+    //instructions state
+    $( '#basic-pages-link' ).click( function(e){
+      e.preventDefault()
+      $( '#classes' ).hide()
+      $( '#sidebar' ).hide()
+      $( '#students' ).hide()
+      $( '#newsletter' ).hide()
+      $( '#basic-pages' ).show()
+      $( '#instructions' ).hide()
     })
   })
 </script>
@@ -74,7 +91,8 @@
           <a href="#sidebar" id="sidebar-link">Sidebar</a> |
           <a href="#students" id="students-link">Students</a> |
           <a href="#newsletter" id="newsletter-link">Newsletter</a> |
-          <a href="#instructions" id="instructions-link">Instructions</a>
+          <a href="#instructions" id="instructions-link">Instructions</a> |
+          <a href="#basic-pages" id="basic-pages-link">Basic Pages</a>
 
 
       </div>
@@ -166,6 +184,16 @@
           <h2><%= student.first_name %> <%= student.last_name %></h2>
           email: <%= student.email %><br>
           how did you hear about us: <%= student.referral_source %><br>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="basic-pages">
+      <div class="row">
+        <h1>Basic Pages</h1>
+        <% @basic_pages.each do |page| %>
+          <%= page.page_title %> <%= link_to 'Edit', edit_basic_page_path(page) %>
+          <br />
         <% end %>
       </div>
     </div>
