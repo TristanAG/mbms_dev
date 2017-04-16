@@ -5,36 +5,8 @@
 </div>
 
 <div class="seven columns">
-  <div class="content">
-
-    
-
-    <h1>Our Offerings</h1>
-
-    <div class="sub-header">General Class Info</div>
-    <p>
-      The Studio provides opportunities to meet yourself and others in a unique, mindful, and compassionate way.<br />
-      <br />
-      Doors open 10 minutes before the start time. Please arrive a few minutes early to settle in.<br />
-      <br />
-      For any event designated as “drop-in,” there is no need to pre-register-- simply take note of an event on the calendar and attend!
-      <br /><br />
-      Courses, workshops, and retreats may be held at the studio or at another location in the community according to the needs of the event and size of the group.
-      <br /><br />
-      <i><u><b>Refund Policy:</b> Once a course has begun, refunds or transfers of registration are not available.</u></i>
-      <br><br>
-      Browse classes from the menu to the left
-      <br /><br />
-      Click on a class for more info
-      <br /><br />
-      To view classes by day and time, see the <%= link_to "Schedule", schedule_path %>
-
-      <h2><%= link_to "Personal Practice & Coaching", personal_practice_and_coaching_path %></h2>
-      We offer individualized instruction, practice, and mindfulness coaching for those who would
-      benefit from a one-on-one environment or who would like a session or program designed for their
-      specific group. We are happy to discuss your needs.
-    </p>
-
+  <div class="content"> 
+    <%= raw @page.page_content %>
   </div>
 </div>
 

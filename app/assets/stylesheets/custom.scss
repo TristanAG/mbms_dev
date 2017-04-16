@@ -530,6 +530,7 @@ h1{
   /*font-family: 'Abel', sans-serif;*/
   padding-top: 12px;
   margin-bottom: 8px;
+
   font-weight: normal;
   font-size: 25px;
 
@@ -553,6 +554,10 @@ h1{
   margin-bottom: 4px;
   font-family: 'Nunito', sans-serif;
   color: $sub-sub-header;
+}
+
+.content{
+  padding-top: 6px;
 }
 
 .content .sub-sub-header{
@@ -713,7 +718,7 @@ label{
 
 textarea{
   width: 600px;
-  height: 240px;
+  // height: 240px;
   max-width: 100%;
 }
 
