@@ -1,3 +1,4 @@
+<% if @classes.present? %>
 <% @announcements.each do |a| %>
   <a href="<%= a.url %>">
   <div class="sidebar-panel">
@@ -9,4 +10,5 @@
 
   </div>
   </a>
+<% end %>
 <% end %>

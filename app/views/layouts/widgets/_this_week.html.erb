@@ -2,20 +2,22 @@
 <div class="sidebar-panel">
   <h1>Upcoming Offerings</h1>
 
-  <% @classes.each do |class_page| %>
-    <ul>
-      <li>
-        <% if class_page.slug_ref != "drop-in-classes"%>
-          <% if class_page.recurring_event %>
-            <a href="/classes/drop-in-classes"><%= class_page.class_title %></a>
-          <% else %>
-            <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a>
+  <% if @classes.present? %>
+    <% @classes.each do |class_page| %>
+      <ul>
+        <li>
+          <% if class_page.slug_ref != "drop-in-classes"%>
+            <% if class_page.recurring_event %>
+              <a href="/classes/drop-in-classes"><%= class_page.class_title %></a>
+            <% else %>
+              <a href="/classes/<%= class_page.slug_ref %>"><%= class_page.class_title %></a>
+            <% end %>
+            <br>
+            <small><%= class_page.start_time.strftime("%A #{class_page.start_time.day.ordinalize}") %> | <%= class_page.start_time.strftime("%l:%M %p") %></small>
           <% end %>
-          <br>
-          <small><%= class_page.start_time.strftime("%A #{class_page.start_time.day.ordinalize}") %> | <%= class_page.start_time.strftime("%l:%M %p") %></small>
-        <% end %>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    <% end %>
   <% end %>
 
 </div>

@@ -5,8 +5,10 @@
 </div>
 
 <div class="seven columns">
-  <div class="content"> 
-    <%= raw @page.page_content %>
+  <div class="content">
+    <% if @page.present? %>
+			<%= raw @page.page_content %>
+		<% end %>
   </div>
 </div>
 

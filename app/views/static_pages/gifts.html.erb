@@ -1,6 +1,8 @@
 <% provide(:title, "Give a Gift") %>
   <div class="nine columns">
       <div class="content">
-        <%= raw @page.page_content %>
+        <% if @page.present? %>
+    			<%= raw @page.page_content %>
+    		<% end %>
       </div>
     </div>

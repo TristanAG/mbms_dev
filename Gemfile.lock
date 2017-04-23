@@ -11,7 +11,7 @@ GIT
       mimemagic (= 0.3.0)
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
