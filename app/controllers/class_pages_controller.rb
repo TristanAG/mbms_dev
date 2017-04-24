@@ -168,7 +168,7 @@ class ClassPagesController < ApplicationController
   private
 
   def load_student_courses
-    @student_courses = ClassPage.all.where({:include_sign_up => true})
+    @student_courses = ClassPage.all.where({:include_sign_up => true}).order("start_time DESC").all
   end
 
   def set_class_page
