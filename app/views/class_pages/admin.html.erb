@@ -158,20 +158,22 @@
     <div id="students">
 
       <div class="row">
+
+
+
         <h1>Students</h1>
-
-        <% @students.each do |student| %>
-
-        Added: <%= student.created_at.strftime("%b %e, %l:%M %p") %>
-        <div style="border: 1px solid lightgray; padding: 8px;">
-          <b><%= student.first_name %> <%= student.last_name %></b> | <%= student.class_name %>
-          <br>
-          <div><%= link_to "[view]", student %></div>
-
-        </div>
         <br>
+        <% @classes.each do |class_instance| %>
 
-
+          <h2 style="margin-top: 22px"><%= class_instance.class_title %></h2>
+          <% @students.each do |student| %>
+            <% if student.class_name == class_instance.class_title %>
+              <b><%= student.first_name %> <%= student.last_name %></b> <small><%= link_to "[view]", student %></small>
+              <br> Sign-up time: <i><%= student.created_at.strftime("%b %e, %l:%M %p") %> </i>
+              <br>
+            <% end %>
+          <% end %>
+          <br><hr />
         <% end %>
 
       </div>
