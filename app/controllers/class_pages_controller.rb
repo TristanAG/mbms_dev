@@ -14,6 +14,7 @@ class ClassPagesController < ApplicationController
     load_students
     load_admin_classes
     load_newsletter_subscribers
+    load_student_courses
     if !user_signed_in?
       redirect_to root_path
     end
@@ -165,6 +166,10 @@ class ClassPagesController < ApplicationController
   end
 
   private
+
+  def load_student_courses
+    @student_courses = ClassPage.all.where({:include_sign_up => true})
+  end
 
   def set_class_page
     @class_page = ClassPage.friendly.find(params[:id])
